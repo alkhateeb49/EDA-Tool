@@ -226,7 +226,7 @@ function Login() {
               </Col>
             </Row>
             {/* <input value="Login" class="btn-fill mb-4 ml-4 btn btn-primary" color="primary" type="submit"/> */}
-            <Button className="btn-fill mb-4 ml-4" color="primary" type="submit" onClick={sendLogin}>
+            <Button className="login-btn btn-fill mb-4 ml-4" color="primary" type="submit" onClick={sendLogin}>
             Login
           </Button>
 
