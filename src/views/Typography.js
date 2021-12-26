@@ -15,7 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React,{ useState } from 'react';
 
 // reactstrap components
 import {
@@ -24,7 +24,6 @@ import {
   CardHeader,
   CardBody,
   CardFooter,
-  CardText,
   FormGroup,
   Form,
   Input,
@@ -33,6 +32,3810 @@ import {
 } from "reactstrap";
 
 function Typography() {
+  // const [ serviceClass,sessionId,errordetails,showSob,sob,status,ip,username,imsi,profileID] = useState(0);
+  const [msisdn, setMsisdn] = useState(0);
+  const [accumulatorID, setAccumulatorID] = useState(0);
+  const [accumulatorValueAbsolute, setAccumulatorValueAbsolute] = useState(0);
+  const [scheduleID, setScheduleID] = useState(0);
+  const [adjustmentAmountRelative, setAdjustmentAmountRelative] = useState(0);
+  const [DAID, setDaid] = useState(0);
+  const [DAValue, setDavalue] = useState(0);
+  const [cc1, setCc1] = useState(0);
+  const [cc2, setCc2] = useState(0);
+  const [cc3, setCc3] = useState(0);
+  const [providerID, setProviderID] = useState(0);
+  const [uc, setUc] = useState(0);
+  const [ucValue, setUcValue] = useState(0);
+  const [ut, setUt] = useState(0);
+  const [utValue, setUtValue] = useState(0);
+  const [fafNumber, setFafNumber] = useState(0);
+  const [languageID, setLanguageID] = useState(0);
+  const [imsi, setImsi] = useState(0);
+  const [ts62, setTs62] = useState(0);
+  const [bc, setBc] = useState(0);
+  const [epsZoneCodeSetId, setEpsZoneCodeSetId] = useState(0);
+  const [epsOdb, setEpsOdb] = useState(0);
+  const [epsProfileId, setEpsProfileId] = useState(0);
+  const [associationId, setAssociationId] = useState(0);
+  const [chargingProfId, setChargingProfId] = useState(0);
+  const [publicId, setPublicId] = useState(0);
+  const [usrIdentifier, setUsrIdentifier] = useState("");
+  const [srvpkgName, setSrvpkgName] = useState("");
+
+  function bar(){
+   
+   console.log(msisdn);
+    //alert('start');
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+        "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:css='http://schemas.ericsson.com/ma/CA/CSSVSUB/'>"+
+        "<soapenv:Header>"+
+           "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+        "</soapenv:Header>"+
+       "<soapenv:Body>"+
+           "<cai3:Set>"+
+              "<cai3:MOType>CSSVSUB@http://schemas.ericsson.com/ma/CA/CSSVSUB/</cai3:MOType>"+
+              "<cai3:MOId>"+
+                 "<css:msisdn>"+msisdn+"</css:msisdn>"+
+            "</cai3:MOId>"+
+              "<cai3:MOAttributes>"+
+                 "<css:SetCSSVSUB>"+
+                    "<css:msisdn>"+msisdn+"</css:msisdn>"+
+                       "<css:refillBarring>"+
+                       "<css:actionId>11</css:actionId>"+               
+                       "<css:refillBarAction>CLEAR</css:refillBarAction>"+
+                    "</css:refillBarring>"+
+                 "</css:SetCSSVSUB>"+
+              "</cai3:MOAttributes>"+
+           "</cai3:Set>"+
+        "</soapenv:Body>"+
+     "</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function moneyTransferUnbaring (){
+   
+    console.log(msisdn);
+     //alert('start');
+ 
+     var xmlhttp = new XMLHttpRequest();
+     xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+     
+     // build SOAP request
+     var sr =
+     "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:css='http://schemas.ericsson.com/ma/CA/CSSVSUB/'>"+
+     "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+     "</soapenv:Header>"+
+     "<soapenv:Body>"+
+        "<cai3:Set>"+
+           "<cai3:MOType>CSSVSUB@http://schemas.ericsson.com/ma/CA/CSSVSUB/</cai3:MOType>"+
+            "<cai3:MOId>"+
+              "<css:msisdn>962"+msisdn+"</css:msisdn>"+
+           "</cai3:MOId>"+
+           "<cai3:MOAttributes>"+
+              "<css:SetCSSVSUB>"+
+                 "<css:msisdn>962"+msisdn+"</css:msisdn>"+
+                 "<css:moneyTransferUnbarring>"+
+                    "<css:actionId>13</css:actionId>"+           
+                    "<css:accumulator>"+
+                       "<css:accumulatorID>"+accumulatorID+"</css:accumulatorID>"+
+                       "<css:accumulatorValueAbsolute>"+accumulatorValueAbsolute+
+                       "</css:accumulatorValueAbsolute>"+
+                       "</css:accumulator>"+
+                       "</css:moneyTransferUnbarring>"+
+                       "</css:SetCSSVSUB>"+
+                       "</cai3:MOAttributes>"+
+                       "</cai3:Set>"+
+                       "</soapenv:Body>"+
+                       "</soapenv:Envelope>"
+     xmlhttp.onreadystatechange = function () {
+       //alert('first');
+         if (xmlhttp.readyState == 4) {
+           //alert('secound');
+             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+              // alert(" working");
+               //alert(sr.response);
+               //To Get error
+               var x, i, xmlDoc, txt;
+               // xmlDoc = sr.responseXML;
+               // console.log(xmlDoc);
+               // txt = "";
+               // x = xmlDoc.getElementsByTagName("sessionId");
+               // for (i = 0; i < x.length; i++) {
+               //   txt += x[i].childNodes[0].nodeValue;
+               // }
+        
+               // this.setState({ sessionId: txt });
+               //console.log(this.state.sessionId);
+               txt = "";
+               console.log("txt = ", txt);
+       
+                 
+             }
+         }
+     }
+     // Send the POST request
+     xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+     xmlhttp.send(sr);
+   }
+   function changeBillCycle(){
+   
+    console.log(msisdn);
+     //alert('start');
+ 
+     var xmlhttp = new XMLHttpRequest();
+     xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+     
+     // build SOAP request
+     var sr =
+     "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:air='http://schemas.ericsson.com/ma/CS/AIR/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+     "<soapenv:Header>"+
+        "<wsse:UsernameToken>"+
+                  "<wsse:Username>mesaimi</wsse:Username>"+
+                  "<wsse:Password>Zain@1234</wsse:Password>"+
+              "</wsse:UsernameToken>"+
+     "</soapenv:Header>"+
+     "<soapenv:Body>"+
+        "<cai3:Set>"+
+           "<cai3:MOType>Subscription@http://schemas.ericsson.com/ma/CS/AIR/</cai3:MOType>"+
+           "<cai3:MOId>"+
+              "<air:subscriberNumber>962"+msisdn+"</air:subscriberNumber>"+
+           "</cai3:MOId>"+
+           "<cai3:MOAttributes>"+
+              "<air:setSubscription subscriberNumber=962"+msisdn+">"+
+                 "<air:subscriberNumberNAI>1</air:subscriberNumberNAI>"+
+                 "<air:periodicAccountManagementData pamServiceID='1'>"+
+                    "<air:pamClassID>1</air:pamClassID>"+
+                    "<air:scheduleID>"+scheduleID+"</air:scheduleID>"+
+                    "<air:pamClassIDCurrent>1</air:pamClassIDCurrent>"+
+                    "<air:scheduleIDCurrent>1</air:scheduleIDCurrent>"+
+                 "</air:periodicAccountManagementData>"+
+              "</air:setSubscription>"+
+           "</cai3:MOAttributes>"+
+        "</cai3:Set>"+
+     "</soapenv:Body>"+
+  "</soapenv:Envelope>";
+      //alert(sr);
+     xmlhttp.onreadystatechange = function () {
+       //alert('first');
+         if (xmlhttp.readyState == 4) {
+           //alert('secound');
+             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+              // alert(" working");
+               //alert(sr.response);
+               //To Get error
+               var x, i, xmlDoc, txt;
+               // xmlDoc = sr.responseXML;
+               // console.log(xmlDoc);
+               // txt = "";
+               // x = xmlDoc.getElementsByTagName("sessionId");
+               // for (i = 0; i < x.length; i++) {
+               //   txt += x[i].childNodes[0].nodeValue;
+               // }
+        
+               // this.setState({ sessionId: txt });
+               //console.log(this.state.sessionId);
+               txt = "";
+               console.log("txt = ", txt);
+       
+                 
+             }
+         }
+     }
+     // Send the POST request
+     xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+     xmlhttp.send(sr);
+   }
+   function trcUnlock(){
+   
+    console.log(msisdn);
+     //alert('start');
+ 
+     var xmlhttp = new XMLHttpRequest();
+     xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+     
+     // build SOAP request
+     var sr =
+     "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:css='http://schemas.ericsson.com/ma/CA/CSSVSUB/'>"+
+     "<soapenv:Header>"+
+          "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+              "<wsse:UsernameToken>"+
+                  "<wsse:Username>mesaimi</wsse:Username>"+
+                  "<wsse:Password>Zain@1234</wsse:Password>"+
+              "</wsse:UsernameToken>"+
+          "</wsse:Security>"+
+     "</soapenv:Header>"+
+     "<soapenv:Body>"+
+        "<cai3:Set>"+
+           "<cai3:MOType>CSSVSUB@http://schemas.ericsson.com/ma/CA/CSSVSUB/</cai3:MOType>"+
+           "<cai3:MOId>"+
+              "<css:msisdn>962"+msisdn+"</css:msisdn>"+
+           "</cai3:MOId>"+
+           "<cai3:MOAttributes>"+
+              "<css:SetCSSVSUB>"+
+                 "<css:msisdn>962"+msisdn+"</css:msisdn>"+
+                         "<css:trcLockUnlock>"+
+                    "<css:actionId>17</css:actionId>"+
+                    "<css:temporaryBlocked>CLEAR</css:temporaryBlocked>"+
+                 "</css:trcLockUnlock>"+
+              "</css:SetCSSVSUB>"+
+           "</cai3:MOAttributes>"+
+        "</cai3:Set>"+
+     "</soapenv:Body>"+
+  "</soapenv:Envelope>";
+      //alert(sr);
+     xmlhttp.onreadystatechange = function () {
+       //alert('first');
+         if (xmlhttp.readyState == 4) {
+           //alert('secound');
+             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+              // alert(" working");
+               //alert(sr.response);
+               //To Get error
+               var x, i, xmlDoc, txt;
+               // xmlDoc = sr.responseXML;
+               // console.log(xmlDoc);
+               // txt = "";
+               // x = xmlDoc.getElementsByTagName("sessionId");
+               // for (i = 0; i < x.length; i++) {
+               //   txt += x[i].childNodes[0].nodeValue;
+               // }
+        
+               // this.setState({ sessionId: txt });
+               //console.log(this.state.sessionId);
+               txt = "";
+               console.log("txt = ", txt);
+       
+                 
+             }
+         }
+     }
+     // Send the POST request
+     xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+     xmlhttp.send(sr);
+   }
+   function trcLock(){
+   
+    console.log(msisdn);
+     //alert('start');
+ 
+     var xmlhttp = new XMLHttpRequest();
+     xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+     
+     // build SOAP request
+     var sr =
+     "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:css='http://schemas.ericsson.com/ma/CA/CSSVSUB/'>"+
+     "<soapenv:Header>"+
+          "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+              "<wsse:UsernameToken>"+
+                  "<wsse:Username>mesaimi</wsse:Username>"+
+                  "<wsse:Password>Zain@1234</wsse:Password>"+
+              "</wsse:UsernameToken>"+
+          "</wsse:Security>"+
+     "</soapenv:Header>"+
+     "<soapenv:Body>"+
+        "<cai3:Set>"+
+           "<cai3:MOType>CSSVSUB@http://schemas.ericsson.com/ma/CA/CSSVSUB/</cai3:MOType>"+
+           "<cai3:MOId>"+
+              "<css:msisdn>962"+msisdn+"</css:msisdn>"+
+           "</cai3:MOId>"+
+           "<cai3:MOAttributes>"+
+              "<css:SetCSSVSUB>"+
+                 "<css:msisdn>962"+msisdn+"</css:msisdn>"+
+                         "<css:trcLockUnlock>"+
+                    "<css:actionId>17</css:actionId>"+
+                    "<css:temporaryBlocked>SET</css:temporaryBlocked>"+
+                 "</css:trcLockUnlock>"+
+              "</css:SetCSSVSUB>"+
+           "</cai3:MOAttributes>"+
+        "</cai3:Set>"+
+     "</soapenv:Body>"+
+  "</soapenv:Envelope>";
+      //alert(sr);
+     xmlhttp.onreadystatechange = function () {
+       //alert('first');
+         if (xmlhttp.readyState == 4) {
+           //alert('secound');
+             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+              // alert(" working");
+               //alert(sr.response);
+               //To Get error
+               var x, i, xmlDoc, txt;
+               // xmlDoc = sr.responseXML;
+               // console.log(xmlDoc);
+               // txt = "";
+               // x = xmlDoc.getElementsByTagName("sessionId");
+               // for (i = 0; i < x.length; i++) {
+               //   txt += x[i].childNodes[0].nodeValue;
+               // }
+        
+               // this.setState({ sessionId: txt });
+               //console.log(this.state.sessionId);
+               txt = "";
+               console.log("txt = ", txt);
+       
+                 
+             }
+         }
+     }
+     // Send the POST request
+     xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+     xmlhttp.send(sr);
+   }
+   function mainAccountRecharge(){
+   
+    console.log(msisdn);
+     //alert('start');
+ 
+     var xmlhttp = new XMLHttpRequest();
+     xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+     
+     // build SOAP request
+     var sr =
+     "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:air='http://schemas.ericsson.com/ma/CS/AIR/'>"+
+   "<soapenv:Header>"+
+        "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+ "<soapenv:Body>"+
+      "<cai3:Set>"+
+         "<cai3:MOType>Subscription@http://schemas.ericsson.com/ma/CS/AIR/</cai3:MOType>"+
+         "<cai3:MOId>"+
+            "<air:subscriberNumber>962"+msisdn+"</air:subscriberNumber>"+
+         "</cai3:MOId>"+
+         "<cai3:MOAttributes>"+
+            "<air:setSubscription subscriberNumber='962"+msisdn+"'>"+
+               "<air:subscriberNumberNAI>1</air:subscriberNumberNAI>"+
+               "<air:balanceAndDate>"+
+                  "<air:transactionCurrency>JOD</air:transactionCurrency>"+
+                  
+                  "<air:adjustmentAmountRelative>"+adjustmentAmountRelative+"</air:adjustmentAmountRelative>"+
+
+               "</air:balanceAndDate>"+
+            "</air:setSubscription>"+
+         "</cai3:MOAttributes>"+
+      "</cai3:Set>"+
+   "</soapenv:Body>"+
+"</soapenv:Envelope>";
+      //alert(sr);
+     xmlhttp.onreadystatechange = function () {
+       //alert('first');
+         if (xmlhttp.readyState == 4) {
+           //alert('secound');
+             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+              // alert(" working");
+               //alert(sr.response);
+               //To Get error
+               var x, i, xmlDoc, txt;
+               // xmlDoc = sr.responseXML;
+               // console.log(xmlDoc);
+               // txt = "";
+               // x = xmlDoc.getElementsByTagName("sessionId");
+               // for (i = 0; i < x.length; i++) {
+               //   txt += x[i].childNodes[0].nodeValue;
+               // }
+        
+               // this.setState({ sessionId: txt });
+               //console.log(this.state.sessionId);
+               txt = "";
+               console.log("txt = ", txt);
+       
+                 
+             }
+         }
+     }
+     // Send the POST request
+     xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+     xmlhttp.send(sr);
+   }
+   function setDataDaValue(){
+   
+    console.log(msisdn);
+     //alert('start');
+ 
+     var xmlhttp = new XMLHttpRequest();
+     xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+     
+     // build SOAP request
+     var sr =
+     "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:air='http://schemas.ericsson.com/ma/CS/AIR/'>"+
+     "<soapenv:Header>"+
+         "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+              "<wsse:UsernameToken>"+
+                  "<wsse:Username>mesaimi</wsse:Username>"+
+                  "<wsse:Password>Zain@1234</wsse:Password>"+
+              "</wsse:UsernameToken>"+
+          "</wsse:Security>"+
+     "</soapenv:Header>"+
+     "<soapenv:Body>"+
+        "<cai3:Set>"+
+           "<cai3:MOType>Subscription@http://schemas.ericsson.com/ma/CS/AIR/</cai3:MOType>"+
+           "<cai3:MOId>"+
+              "<air:subscriberNumber>962"+msisdn+"</air:subscriberNumber>"+
+           "</cai3:MOId>"+
+           "<cai3:MOAttributes>"+
+              "<air:setSubscription subscriberNumber='962"+msisdn+"'>"+
+               "<air:subscriberNumberNAI>1</air:subscriberNumberNAI>"+
+                 "<air:balanceAndDate>"+
+                    "<air:transactionCurrency>JOD</air:transactionCurrency>"+
+  
+                    "<air:dedicatedAccountUpdateInformation>"+
+                       "<air:dedicatedAccountID>"+DAID+"</air:dedicatedAccountID>"+
+                       "<air:dedicatedAccountValueNew>"+DAValue+"</air:dedicatedAccountValueNew>"+
+                       "<air:dedicatedAccountUnitType>6</air:dedicatedAccountUnitType>"+
+                    "</air:dedicatedAccountUpdateInformation>"+
+                 "</air:balanceAndDate>"+
+              "</air:setSubscription>"+
+           "</cai3:MOAttributes>"+
+        "</cai3:Set>"+
+     "</soapenv:Body>"+
+  "</soapenv:Envelope>";
+      //alert(sr);
+     xmlhttp.onreadystatechange = function () {
+       //alert('first');
+         if (xmlhttp.readyState == 4) {
+           //alert('secound');
+             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+              // alert(" working");
+               //alert(sr.response);
+               //To Get error
+               var x, i, xmlDoc, txt;
+               // xmlDoc = sr.responseXML;
+               // console.log(xmlDoc);
+               // txt = "";
+               // x = xmlDoc.getElementsByTagName("sessionId");
+               // for (i = 0; i < x.length; i++) {
+               //   txt += x[i].childNodes[0].nodeValue;
+               // }
+        
+               // this.setState({ sessionId: txt });
+               //console.log(this.state.sessionId);
+               txt = "";
+               console.log("txt = ", txt);
+       
+                 
+             }
+         }
+     }
+     // Send the POST request
+     xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+     xmlhttp.send(sr);
+   }
+   function setMinutesDaValue(){
+   
+    console.log(msisdn);
+     //alert('start');
+ 
+     var xmlhttp = new XMLHttpRequest();
+     xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+     
+     // build SOAP request
+     var sr =
+     "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:air='http://schemas.ericsson.com/ma/CS/AIR/'>"+
+     "<soapenv:Header>"+
+         "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+              "<wsse:UsernameToken>"+
+                  "<wsse:Username>mesaimi</wsse:Username>"+
+                  "<wsse:Password>Zain@1234</wsse:Password>"+
+              "</wsse:UsernameToken>"+
+          "</wsse:Security>"+
+     "</soapenv:Header>"+
+     "<soapenv:Body>"+
+        "<cai3:Set>"+
+           "<cai3:MOType>Subscription@http://schemas.ericsson.com/ma/CS/AIR/</cai3:MOType>"+
+           "<cai3:MOId>"+
+              "<air:subscriberNumber>962"+msisdn+"</air:subscriberNumber>"+
+           "</cai3:MOId>"+
+           "<cai3:MOAttributes>"+
+              "<air:setSubscription subscriberNumber='962"+msisdn+"'>"+
+               "<air:subscriberNumberNAI>1</air:subscriberNumberNAI>"+
+                 "<air:balanceAndDate>"+
+                    "<air:transactionCurrency>JOD</air:transactionCurrency>"+
+  
+                    "<air:dedicatedAccountUpdateInformation>"+
+                       "<air:dedicatedAccountID>"+DAID+"</air:dedicatedAccountID>"+
+                       "<air:dedicatedAccountValueNew>"+DAValue+"</air:dedicatedAccountValueNew>"+
+                       "<air:dedicatedAccountUnitType>1</air:dedicatedAccountUnitType>"+
+                    "</air:dedicatedAccountUpdateInformation>"+
+                 "</air:balanceAndDate>"+
+              "</air:setSubscription>"+
+           "</cai3:MOAttributes>"+
+        "</cai3:Set>"+
+     "</soapenv:Body>"+
+  "</soapenv:Envelope>";
+      //alert(sr);
+     xmlhttp.onreadystatechange = function () {
+       //alert('first');
+         if (xmlhttp.readyState == 4) {
+           //alert('secound');
+             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+              // alert(" working");
+               //alert(sr.response);
+               //To Get error
+               var x, i, xmlDoc, txt;
+               // xmlDoc = sr.responseXML;
+               // console.log(xmlDoc);
+               // txt = "";
+               // x = xmlDoc.getElementsByTagName("sessionId");
+               // for (i = 0; i < x.length; i++) {
+               //   txt += x[i].childNodes[0].nodeValue;
+               // }
+        
+               // this.setState({ sessionId: txt });
+               //console.log(this.state.sessionId);
+               txt = "";
+               console.log("txt = ", txt);
+       
+                 
+             }
+         }
+     }
+     // Send the POST request
+     xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+     xmlhttp.send(sr);
+   }
+   function setDataDaValueRelative(){
+   
+    
+     var xmlhttp = new XMLHttpRequest();
+     xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+     
+     // build SOAP request
+     var sr =
+     "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:air='http://schemas.ericsson.com/ma/CS/AIR/'>"+
+     "<soapenv:Header>"+
+         "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+              "<wsse:UsernameToken>"+
+                  "<wsse:Username>mesaimi</wsse:Username>"+
+                  "<wsse:Password>Zain@1234</wsse:Password>"+
+              "</wsse:UsernameToken>"+
+          "</wsse:Security>"+
+     "</soapenv:Header>"+
+     "<soapenv:Body>"+
+        "<cai3:Set>"+
+           "<cai3:MOType>Subscription@http://schemas.ericsson.com/ma/CS/AIR/</cai3:MOType>"+
+           "<cai3:MOId>"+
+              "<air:subscriberNumber>962"+msisdn+"</air:subscriberNumber>"+
+           "</cai3:MOId>"+
+           "<cai3:MOAttributes>"+
+              "<air:setSubscription subscriberNumber='962"+msisdn+"'>"+
+               "<air:subscriberNumberNAI>1</air:subscriberNumberNAI>"+
+                 "<air:balanceAndDate>"+
+                    "<air:transactionCurrency>JOD</air:transactionCurrency>"+
+  
+                    "<air:dedicatedAccountUpdateInformation>"+
+                       "<air:dedicatedAccountID>"+DAID+"</air:dedicatedAccountID>"+
+                       "<air:adjustmentAmountRelative>"+DAValue+"</air:adjustmentAmountRelative>"+
+                       "<air:dedicatedAccountUnitType>6</air:dedicatedAccountUnitType>"+
+                    "</air:dedicatedAccountUpdateInformation>"+
+                 "</air:balanceAndDate>"+
+              "</air:setSubscription>"+
+           "</cai3:MOAttributes>"+
+        "</cai3:Set>"+
+     "</soapenv:Body>"+
+  "</soapenv:Envelope>";
+      //alert(sr);
+     xmlhttp.onreadystatechange = function () {
+       //alert('first');
+         if (xmlhttp.readyState == 4) {
+           //alert('secound');
+             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+              // alert(" working");
+               //alert(sr.response);
+               //To Get error
+               var x, i, xmlDoc, txt;
+               // xmlDoc = sr.responseXML;
+               // console.log(xmlDoc);
+               // txt = "";
+               // x = xmlDoc.getElementsByTagName("sessionId");
+               // for (i = 0; i < x.length; i++) {
+               //   txt += x[i].childNodes[0].nodeValue;
+               // }
+        
+               // this.setState({ sessionId: txt });
+               //console.log(this.state.sessionId);
+               txt = "";
+               console.log("txt = ", txt);
+       
+                 
+             }
+         }
+     }
+     // Send the POST request
+     xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+     xmlhttp.send(sr);
+   }
+   function setMinutesDaValueRelative(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:air='http://schemas.ericsson.com/ma/CS/AIR/'>"+
+    "<soapenv:Header>"+
+        "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+             "<wsse:UsernameToken>"+
+                 "<wsse:Username>mesaimi</wsse:Username>"+
+                 "<wsse:Password>Zain@1234</wsse:Password>"+
+             "</wsse:UsernameToken>"+
+         "</wsse:Security>"+
+    "</soapenv:Header>"+
+    "<soapenv:Body>"+
+       "<cai3:Set>"+
+          "<cai3:MOType>Subscription@http://schemas.ericsson.com/ma/CS/AIR/</cai3:MOType>"+
+          "<cai3:MOId>"+
+             "<air:subscriberNumber>962"+msisdn+"</air:subscriberNumber>"+
+          "</cai3:MOId>"+
+          "<cai3:MOAttributes>"+
+             "<air:setSubscription subscriberNumber='962"+msisdn+"'>"+
+              "<air:subscriberNumberNAI>1</air:subscriberNumberNAI>"+
+                "<air:balanceAndDate>"+
+                   "<air:transactionCurrency>JOD</air:transactionCurrency>"+
+ 
+                   "<air:dedicatedAccountUpdateInformation>"+
+                      "<air:dedicatedAccountID>"+DAID+"</air:dedicatedAccountID>"+
+                      "<air:adjustmentAmountRelative>"+DAValue+"</air:adjustmentAmountRelative>"+
+                      "<air:dedicatedAccountUnitType>1</air:dedicatedAccountUnitType>"+
+                   "</air:dedicatedAccountUpdateInformation>"+
+                "</air:balanceAndDate>"+
+             "</air:setSubscription>"+
+          "</cai3:MOAttributes>"+
+       "</cai3:Set>"+
+    "</soapenv:Body>"+
+ "</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function setCommunityCc1(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:css='http://schemas.ericsson.com/ma/CA/CSSVSUB/'>"+
+    "<soapenv:Header>"+
+       "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+             "<wsse:UsernameToken>"+
+                 "<wsse:Username>mesaimi</wsse:Username>"+
+                 "<wsse:Password>Zain@1234</wsse:Password>"+
+             "</wsse:UsernameToken>"+
+         "</wsse:Security>"+
+    "</soapenv:Header>"+
+    "<soapenv:Body>"+
+       "<cai3:Set>"+
+          "<cai3:MOType>CSSVSUB@http://schemas.ericsson.com/ma/CA/CSSVSUB/</cai3:MOType>"+
+          "<cai3:MOId>"+
+             "<css:msisdn>962"+msisdn+"</css:msisdn>"+
+          "</cai3:MOId>"+
+          "<cai3:MOAttributes>"+
+             "<css:SetCSSVSUB>"+
+                "<css:msisdn>962"+msisdn+"</css:msisdn>"+
+                "<css:updateCommunityList>"+
+                   "<css:actionId>21</css:actionId>"+
+                   "<css:msisdnNai>1</css:msisdnNai>"+
+                   "<css:cc1>"+cc1+"</css:cc1>"+
+                "</css:updateCommunityList>"+
+             "</css:SetCSSVSUB>"+
+          "</cai3:MOAttributes>"+
+       "</cai3:Set>"+
+    "</soapenv:Body>"+
+ "</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function setCommunityCc2(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:css='http://schemas.ericsson.com/ma/CA/CSSVSUB/'>"+
+    "<soapenv:Header>"+
+       "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+             "<wsse:UsernameToken>"+
+                 "<wsse:Username>mesaimi</wsse:Username>"+
+                 "<wsse:Password>Zain@1234</wsse:Password>"+
+             "</wsse:UsernameToken>"+
+         "</wsse:Security>"+
+    "</soapenv:Header>"+
+    "<soapenv:Body>"+
+       "<cai3:Set>"+
+          "<cai3:MOType>CSSVSUB@http://schemas.ericsson.com/ma/CA/CSSVSUB/</cai3:MOType>"+
+          "<cai3:MOId>"+
+             "<css:msisdn>962"+msisdn+"</css:msisdn>"+
+          "</cai3:MOId>"+
+          "<cai3:MOAttributes>"+
+             "<css:SetCSSVSUB>"+
+                "<css:msisdn>962"+msisdn+"</css:msisdn>"+
+                "<css:updateCommunityList>"+
+                   "<css:actionId>21</css:actionId>"+
+                   "<css:msisdnNai>1</css:msisdnNai>"+
+                   "<css:cc2>"+cc2+"</css:cc2>"+
+                "</css:updateCommunityList>"+
+             "</css:SetCSSVSUB>"+
+          "</cai3:MOAttributes>"+
+       "</cai3:Set>"+
+    "</soapenv:Body>"+
+ "</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function setCommunityCc3(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:css='http://schemas.ericsson.com/ma/CA/CSSVSUB/'>"+
+    "<soapenv:Header>"+
+       "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+             "<wsse:UsernameToken>"+
+                 "<wsse:Username>mesaimi</wsse:Username>"+
+                 "<wsse:Password>Zain@1234</wsse:Password>"+
+             "</wsse:UsernameToken>"+
+         "</wsse:Security>"+
+    "</soapenv:Header>"+
+    "<soapenv:Body>"+
+       "<cai3:Set>"+
+          "<cai3:MOType>CSSVSUB@http://schemas.ericsson.com/ma/CA/CSSVSUB/</cai3:MOType>"+
+          "<cai3:MOId>"+
+             "<css:msisdn>962"+msisdn+"</css:msisdn>"+
+          "</cai3:MOId>"+
+          "<cai3:MOAttributes>"+
+             "<css:SetCSSVSUB>"+
+                "<css:msisdn>962"+msisdn+"</css:msisdn>"+
+                "<css:updateCommunityList>"+
+                   "<css:actionId>21</css:actionId>"+
+                   "<css:msisdnNai>1</css:msisdnNai>"+
+                   "<css:cc3>"+cc3+"</css:cc3>"+
+                "</css:updateCommunityList>"+
+             "</css:SetCSSVSUB>"+
+          "</cai3:MOAttributes>"+
+       "</cai3:Set>"+
+    "</soapenv:Body>"+
+ "</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function addSharedOffer(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:air='http://schemas.ericsson.com/ma/CS/AIR/'>"+
+    "<soapenv:Header>"+
+        "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+    "</soapenv:Header>"+
+    "<soapenv:Body>"+
+        "<cai3:Set>"+
+            "<cai3:MOType>Offer@http://schemas.ericsson.com/ma/CS/AIR/</cai3:MOType>"+
+            "<cai3:MOId>"+
+                "<air:subscriberNumber>962"+msisdn+"</air:subscriberNumber>"+
+                "<air:offerID>7001</air:offerID>"+
+            "</cai3:MOId>"+
+            "<cai3:MOAttributes>"+
+                "<air:setOffer subscriberNumber='962"+msisdn+"' offerID='7001'>"+
+                    "<air:subscriberNumberNAI>1</air:subscriberNumberNAI>"+
+                    "<air:originOperatorID>1</air:originOperatorID>"+
+                     "<air:offerRequestInformation>"+
+                        "<air:offerType>3</air:offerType>"+
+                        "<air:offerProviderID>"+providerID+"</air:offerProviderID>"+
+                    "</air:offerRequestInformation>"+
+                "</air:setOffer>"+
+            "</cai3:MOAttributes>"+
+        "</cai3:Set>"+
+    "</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function setUcMValue(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:air='http://schemas.ericsson.com/ma/CS/AIR/'>"+
+   "<soapenv:Header>"+
+      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+   "<soapenv:Body>"+
+      "<cai3:Set>"+
+         "<cai3:MOType>Subscription@http://schemas.ericsson.com/ma/CS/AIR/</cai3:MOType>"+
+         "<cai3:MOId>"+
+            "<air:subscriberNumber>962"+msisdn+"</air:subscriberNumber>"+
+         "</cai3:MOId>"+
+         "<cai3:MOAttributes>"+
+            "<air:setSubscription subscriberNumber='962"+msisdn+"'>"+
+               "<air:subscriberNumberNAI>1</air:subscriberNumberNAI>"+
+               "<air:usageThresholdsAndCounters>"+
+                  "<air:transactionCurrency>JOD</air:transactionCurrency>"+
+                  "<air:usageCounterUpdateInformation>"+
+                     "<air:usageCounterID>"+uc+"</air:usageCounterID>"+
+                     "<air:usageCounterMonetaryValueNew>"+ucValue+"</air:usageCounterMonetaryValueNew>"+
+                  "</air:usageCounterUpdateInformation>"+
+               "</air:usageThresholdsAndCounters>"+
+            "</air:setSubscription>"+
+         "</cai3:MOAttributes>"+
+      "</cai3:Set>"+
+   "</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function setUcNMValue(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:air='http://schemas.ericsson.com/ma/CS/AIR/'>"+
+   "<soapenv:Header>"+
+      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+   "<soapenv:Body>"+
+      "<cai3:Set>"+
+         "<cai3:MOType>Subscription@http://schemas.ericsson.com/ma/CS/AIR/</cai3:MOType>"+
+         "<cai3:MOId>"+
+            "<air:subscriberNumber>962"+msisdn+"</air:subscriberNumber>"+
+         "</cai3:MOId>"+
+         "<cai3:MOAttributes>"+
+            "<air:setSubscription subscriberNumber='962"+msisdn+"'>"+
+               "<air:subscriberNumberNAI>1</air:subscriberNumberNAI>"+
+               "<air:usageThresholdsAndCounters>"+
+                  "<air:transactionCurrency>JOD</air:transactionCurrency>"+
+                  "<air:usageCounterUpdateInformation>"+
+                     "<air:usageCounterID>"+uc+"</air:usageCounterID>"+
+                     "<air:usageCounterValueNew>"+ucValue+"</air:usageCounterValueNew>"+
+                  "</air:usageCounterUpdateInformation>"+
+               "</air:usageThresholdsAndCounters>"+
+            "</air:setSubscription>"+
+         "</cai3:MOAttributes>"+
+      "</cai3:Set>"+
+   "</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function setUtValueN(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:air='http://schemas.ericsson.com/ma/CS/AIR/'>"+
+   "<soapenv:Header>"+
+       "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+   "<soapenv:Body>"+
+      "<cai3:Set>"+
+         "<cai3:MOType>Subscription@http://schemas.ericsson.com/ma/CS/AIR/</cai3:MOType>"+
+         "<cai3:MOId>"+
+             "<air:subscriberNumber>962"+msisdn+"</air:subscriberNumber>"+
+         "</cai3:MOId>"+
+         "<cai3:MOAttributes>"+
+            "<air:setSubscription subscriberNumber='962"+msisdn+"'>"+
+               "<air:subscriberNumberNAI>1</air:subscriberNumberNAI>"+
+               "<air:usageThresholdsAndCounters>"+
+                  "<air:transactionCurrency>JOD</air:transactionCurrency>"+
+                  "<air:usageThresholdUpdateInformation usageThresholdID='"+ut+"'>"+
+                     "<air:usageThresholdID>"+ut+"</air:usageThresholdID>"+
+                     "<air:usageThresholdMonetaryValueNew>"+utValue+"</air:usageThresholdMonetaryValueNew>"+
+                  "</air:usageThresholdUpdateInformation>"+
+               "</air:usageThresholdsAndCounters>"+
+            "</air:setSubscription>"+
+         "</cai3:MOAttributes>"+
+      "</cai3:Set>"+
+   "</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function setFafNumberN(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:air='http://schemas.ericsson.com/ma/CS/AIR/'>"+
+   "<soapenv:Header>"+
+       "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+   "<soapenv:Body>"+
+      "<cai3:Set>"+
+         "<cai3:MOType>Subscription@http://schemas.ericsson.com/ma/CS/AIR/</cai3:MOType>"+
+         "<cai3:MOId>"+
+            "<air:subscriberNumber>962"+msisdn+"</air:subscriberNumber>"+
+         "</cai3:MOId>"+
+         "<cai3:MOAttributes>"+
+            "<air:setSubscription subscriberNumber='962"+msisdn+"'>"+
+               "<air:subscriberNumberNAI>1</air:subscriberNumberNAI>"+
+               "<air:originOperatorID>1</air:originOperatorID>"+
+               "<air:faf fafNumber='"+fafNumber+"' owner='Subscriber'>"+
+                  "<air:fafNumber>"+fafNumber+"</air:fafNumber>"+
+                  "<air:owner>Subscriber</air:owner>"+
+                 "<air:fafIndicator>1</air:fafIndicator>"+
+                  "<air:selectedOption>1</air:selectedOption>"+
+                  "<air:chargingRequestInformation>"+
+                     "<air:chargingType>2</air:chargingType>"+
+                     "<air:chargingIndicator>200</air:chargingIndicator>"+
+                  "</air:chargingRequestInformation>"+
+               "</air:faf>"+
+            "</air:setSubscription>"+
+         "</cai3:MOAttributes>"+
+      "</cai3:Set>"+
+   "</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function setLanguage(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:air='http://schemas.ericsson.com/ma/CS/AIR/'>"+
+    "<soapenv:Header>"+
+        "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+             "<wsse:UsernameToken>"+
+                 "<wsse:Username>mesaimi</wsse:Username>"+
+                 "<wsse:Password>Zain@1234</wsse:Password>"+
+             "</wsse:UsernameToken>"+
+         "</wsse:Security>"+
+    "</soapenv:Header>"+
+    "<soapenv:Body>"+
+       "<cai3:Set>"+
+          "<cai3:MOType>Subscription@http://schemas.ericsson.com/ma/CS/AIR/</cai3:MOType>"+
+          "<cai3:MOId>"+
+             "<air:subscriberNumber>962"+msisdn+"</air:subscriberNumber>"+
+          "</cai3:MOId>"+
+          "<cai3:MOAttributes>"+
+             "<air:setSubscription subscriberNumber='962"+msisdn+"'>"+
+                "<air:subscriberNumberNAI>1</air:subscriberNumberNAI>"+   
+                    "<air:accountDetails>"+
+                        "<air:languageIDNew>"+languageID+"</air:languageIDNew>"+
+                      "</air:accountDetails>"+
+             "</air:setSubscription>"+
+          "</cai3:MOAttributes>"+
+       "</cai3:Set>"+
+    "</soapenv:Body>"+
+ "</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function removeBaringOnLTE(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:hss='http://schemas.ericsson.com/ma/HSS/'>"+
+   "<soapenv:Header>"+
+      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+   "<soapenv:Body>"+
+      "<cai3:Set>"+
+         "<cai3:MOType>EPSMultiSC@http://schemas.ericsson.com/ma/HSS/</cai3:MOType>"+
+         "<cai3:MOId>"+
+            "<hss:imsi>"+imsi+"</hss:imsi>"+
+         "</cai3:MOId>"+
+         "<cai3:MOAttributes>"+
+            "<hss:SetEPSMultiSC imsi='"+imsi+"'>"+
+               "<hss:epsOdb>NONE</hss:epsOdb>"+
+               "<hss:epsZoneCodeSetId>"+epsZoneCodeSetId+"</hss:epsZoneCodeSetId>"+
+            "</hss:SetEPSMultiSC>"+
+         "</cai3:MOAttributes>"+
+      "</cai3:Set>"+
+   "</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function SetBarringOnLTE(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:hss='http://schemas.ericsson.com/ma/HSS/'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+   "<soapenv:Body>"+
+      "<cai3:Set>"+
+         "<cai3:MOType>EPSMultiSC@http://schemas.ericsson.com/ma/HSS/</cai3:MOType>"+
+         "<cai3:MOId>"+
+            "<hss:imsi>"+imsi+"</hss:imsi>"+
+         "</cai3:MOId>"+
+         "<cai3:MOAttributes>"+
+            "<hss:SetEPSMultiSC imsi='"+imsi+"'>"+
+               "<hss:epsOdb>"+epsOdb+"</hss:epsOdb>"+
+            "</hss:SetEPSMultiSC>"+
+         "</cai3:MOAttributes>"+
+      "</cai3:Set>"+
+   "</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function SetEpsProfileId(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:hss='http://schemas.ericsson.com/ma/HSS/'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+   "<soapenv:Body>"+
+      "<cai3:Set>"+
+         "<cai3:MOType>EPSMultiSC@http://schemas.ericsson.com/ma/HSS/</cai3:MOType>"+
+         "<cai3:MOId>"+
+            "<hss:imsi>"+imsi+"</hss:imsi>"+
+         "</cai3:MOId>"+
+         "<cai3:MOAttributes>"+
+            "<hss:SetEPSMultiSC imsi='"+imsi+"'>"+
+               "<hss:epsProfileId>"+epsProfileId+"</hss:epsProfileId>"+
+            "</hss:SetEPSMultiSC>"+
+         "</cai3:MOAttributes>"+
+      "</cai3:Set>"+
+   "</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function RemoveRingBackTone(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:gsm='http://schemas.ericsson.com/ema/UserProvisioning/GsmHlr/'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/GsmHlr/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<gsm:msisdn>"+msisdn+"</gsm:msisdn>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<gsm:setSubscription msisdn='"+msisdn+"'>"+
+"<gsm:prbt>0</gsm:prbt>"+
+"</gsm:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function RemoveSMSIncomingBaring(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:gsm='http://schemas.ericsson.com/ema/UserProvisioning/GsmHlr/'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/GsmHlr/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<gsm:msisdn>"+msisdn+"</gsm:msisdn>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<gsm:setSubscription msisdn='"+msisdn+"'>"+
+"<gsm:baic>"+
+"<gsm:provisionState>1</gsm:provisionState>"+
+"<gsm:activationState>0</gsm:activationState>"+
+"<gsm:ts20>"+
+"<gsm:activationState>1</gsm:activationState>"+
+"</gsm:ts20>      "+
+"</gsm:baic>"+
+"</gsm:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function RemoveSpecialRoaming(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:gsm='http://schemas.ericsson.com/ema/UserProvisioning/GsmHlr/'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/GsmHlr/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<gsm:msisdn>"+msisdn+"</gsm:msisdn>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<gsm:setSubscription msisdn='"+msisdn+"'>"+
+"<gsm:obo>2</gsm:obo>"+
+"<gsm:obr>1</gsm:obr>"+
+"<gsm:rsa>100</gsm:rsa>"+
+"</gsm:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function RemoveSpecialRoamingAndkeepInternational(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:gsm='http://schemas.ericsson.com/ema/UserProvisioning/GsmHlr/'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/GsmHlr/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<gsm:msisdn>"+msisdn+"</gsm:msisdn>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<gsm:setSubscription msisdn='"+msisdn+"'>"+
+"<gsm:obo>0</gsm:obo>"+
+"<gsm:obr>1</gsm:obr>"+
+"<gsm:rsa>100</gsm:rsa>"+
+"</gsm:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+    
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function RemoveZainGPRSService(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:gsm='http://schemas.ericsson.com/ema/UserProvisioning/GsmHlr/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/GsmHlr/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<gsm:msisdn>"+msisdn+"</gsm:msisdn>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<gsm:setSubscription msisdn='"+msisdn+"'>"+
+"<gsm:gprs pdpid='4' xsi:nil='true'>"+
+"</gsm:gprs>"+
+"</gsm:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function SETOBOOBIOSBBarring(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:gsm='http://schemas.ericsson.com/ema/UserProvisioning/GsmHlr/'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/GsmHlr/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<gsm:msisdn>"+msisdn+"</gsm:msisdn>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<gsm:setSubscription msisdn='"+msisdn+"'>"+
+"<gsm:obi>1</gsm:obi>"+
+"<gsm:obo>2</gsm:obo>"+
+"<gsm:osb4>1</gsm:osb4>"+
+"</gsm:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function SOCLIP(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function SOCLIR(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function TS11(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function TemporaryGPRSDisconnect(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:gsm='http://schemas.ericsson.com/ema/UserProvisioning/GsmHlr/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/GsmHlr/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<gsm:msisdn>"+msisdn+"</gsm:msisdn>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<gsm:setSubscription msisdn='"+msisdn+"'>"+
+"<gsm:gprs pdpid='1' xsi:nil='true'>"+
+"</gsm:gprs>"+
+"<gsm:gprs pdpid='2' xsi:nil='true'>"+
+"</gsm:gprs>"+
+"</gsm:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function SETLTEDATABarring(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:hss='http://schemas.ericsson.com/ma/HSS/'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>EPSMultiSC@http://schemas.ericsson.com/ma/HSS/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<hss:imsi>"+imsi+"</hss:imsi>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<hss:SetEPSMultiSC imsi='"+imsi+"'>"+
+"<hss:epsOdb>"+epsOdb+"</hss:epsOdb>"+
+"<hss:epsZoneCodeSetId>"+epsZoneCodeSetId+"</hss:epsZoneCodeSetId>"+
+"</hss:SetEPSMultiSC>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function SETProfileID(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:hss='http://schemas.ericsson.com/ma/HSS/'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>EPSMultiSC@http://schemas.ericsson.com/ma/HSS/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<hss:imsi>"+imsi+"</hss:imsi>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<hss:SetEPSMultiSC imsi='"+imsi+"'>"+
+"<hss:epsProfileId>"+epsProfileId+"</hss:epsProfileId>"+
+"</hss:SetEPSMultiSC>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function BlockWIFIandpassIN(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:hss='http://schemas.ericsson.com/ma/HSS/'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>IMSAssociation@http://schemas.ericsson.com/ma/HSS/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<hss:associationId>"+associationId+"</hss:associationId>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<hss:SetIMSAssociation associationId='"+associationId+"'>"+
+"<hss:chargingProfId>OnlineOffline_Charging</hss:chargingProfId>"+
+"<hss:publicData publicIdValue='sip:+962797345995@ims.mnc001.mcc416.3gppnetwork.org'>"+
+"<hss:wirelineAccessAllowed>ALLOWED_ONLY_IF_PANI_INCL_AUTH_LOCATION</hss:wirelineAccessAllowed>"+
+"</hss:publicData>"+
+"<hss:publicData publicIdValue='"+associationId+"'>"+
+"<hss:wirelineAccessAllowed>ALLOWED_ONLY_IF_PANI_INCL_AUTH_LOCATION</hss:wirelineAccessAllowed>"+
+"</hss:publicData>"+
+"</hss:SetIMSAssociation>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function AddCFNRC(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:mtas='http://schemas.ericsson.com/ema/UserProvisioning/MTAS/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/MTAS/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<mtas:publicId>"+publicId+"</mtas:publicId>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<mtas:setSubscription publicId='"+publicId+"'>"+
+"<mtas:services>"+
+"<mtas:communication-diversion>"+
+"<mtas:cdiv-user-configuration>"+
+"<mtas:active>true</mtas:active>"+
+"<mtas:cdiv-ruleset>"+
+"<mtas:cdiv-rule id='call-diversion-not-reachable'>"+
+"<mtas:cdiv-conditions>"+
+"<mtas:rule-deactivated>false</mtas:rule-deactivated>"+
+"<mtas:cdiv-call-state>not-reachable</mtas:cdiv-call-state>"+
+"</mtas:cdiv-conditions>"+
+"<mtas:cdiv-actions>"+
+"<mtas:forward-to>"+
+"<mtas:target>tel:+962790001322</mtas:target>"+
+"<mtas:notify-served-user>false</mtas:notify-served-user>"+
+"<mtas:notify-served-user-on-outbound-call>false</mtas:notify-served-user-on-outbound-call>"+
+"</mtas:forward-to>"+
+"</mtas:cdiv-actions>"+
+"</mtas:cdiv-rule>"+
+"</mtas:cdiv-ruleset>"+
+"</mtas:cdiv-user-configuration>"+
+"</mtas:communication-diversion>"+
+"</mtas:services>"+
+"</mtas:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function AddCFU(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:mtas='http://schemas.ericsson.com/ema/UserProvisioning/MTAS/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/MTAS/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<mtas:publicId>"+publicId+"</mtas:publicId>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<mtas:setSubscription publicId='"+publicId+"'>"+
+"<mtas:services>"+
+"<mtas:communication-diversion>"+
+"<mtas:cdiv-user-configuration>"+
+"<mtas:active>true</mtas:active>"+
+"<mtas:cdiv-ruleset>"+
+"<mtas:cdiv-rule id='call-diversion-unconditional'>"+
+"<mtas:cdiv-conditions>"+
+"<mtas:rule-deactivated>false</mtas:rule-deactivated>"+
+"</mtas:cdiv-conditions>"+
+"<mtas:cdiv-actions>"+
+"<mtas:forward-to>"+
+"<mtas:target>tel:+962790001322</mtas:target>"+
+"<mtas:notify-served-user>false</mtas:notify-served-user>"+
+"<mtas:notify-served-user-on-outbound-call>false</mtas:notify-served-user-on-outbound-call>"+
+"</mtas:forward-to>"+
+"</mtas:cdiv-actions>"+
+"</mtas:cdiv-rule>"+
+"</mtas:cdiv-ruleset>"+
+"</mtas:cdiv-user-configuration>"+
+"</mtas:communication-diversion>"+
+"</mtas:services>"+
+"</mtas:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function AddCLIPlus(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:mtas='http://schemas.ericsson.com/ema/UserProvisioning/MTAS/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/MTAS/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<mtas:publicId>"+publicId+"</mtas:publicId>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<mtas:setSubscription publicId='"+publicId+"'>"+
+"<mtas:services>"+
+"<mtas:communication-diversion>"+
+"<mtas:cdiv-user-configuration>"+
+"<mtas:active>true</mtas:active>"+
+"<mtas:cdiv-ruleset>"+
+"<mtas:cdiv-rule id='call-diversion-unconditional'>"+
+"<mtas:cdiv-conditions>"+
+"<mtas:rule-deactivated>false</mtas:rule-deactivated>"+
+"</mtas:cdiv-conditions>"+
+"<mtas:cdiv-actions>"+
+"<mtas:forward-to>"+
+"<mtas:target>tel:+962790001322</mtas:target>"+
+"<mtas:notify-served-user>false</mtas:notify-served-user>"+
+"<mtas:notify-served-user-on-outbound-call>false</mtas:notify-served-user-on-outbound-call>"+
+"</mtas:forward-to>"+
+"</mtas:cdiv-actions>"+
+"</mtas:cdiv-rule>"+
+"</mtas:cdiv-ruleset>"+
+"</mtas:cdiv-user-configuration>"+
+"</mtas:communication-diversion>"+
+"</mtas:services>"+
+"</mtas:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function AddRBT(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:mtas='http://schemas.ericsson.com/ema/UserProvisioning/MTAS/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/MTAS/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<mtas:publicId>"+publicId+"</mtas:publicId>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<mtas:setSubscription publicId='"+publicId+"'>"+
+"<mtas:services>"+
+"<mtas:customized-alerting-tone>"+
+"<mtas:cat-operator-configuration>"+
+"<mtas:activated>true</mtas:activated>"+
+"</mtas:cat-operator-configuration>"+
+"</mtas:customized-alerting-tone>"+
+"</mtas:services>"+
+"</mtas:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+    
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function Addincommingcommunicationbarring(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:mtas='http://schemas.ericsson.com/ema/UserProvisioning/MTAS/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/MTAS/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<mtas:publicId>"+publicId+"</mtas:publicId>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<mtas:setSubscription publicId='"+publicId+"'>"+
+"<mtas:services>"+
+"<mtas:incoming-communication-barring>"+
+"<mtas:icb-operator-configuration>"+
+"<mtas:activated>true</mtas:activated>"+
+"<mtas:icb-ruleset>"+
+"<mtas:icb-rule id='ICB_BAIC'>"+
+"<mtas:icb-conditions>"+
+"<mtas:rule-deactivated>false</mtas:rule-deactivated>"+
+"</mtas:icb-conditions>"+
+"</mtas:icb-rule>"+
+"</mtas:icb-ruleset>"+
+"</mtas:icb-operator-configuration>"+
+"</mtas:incoming-communication-barring>"+
+"</mtas:services>"+
+"</mtas:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function AddoutgoingRoamingcommunicationbarring(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:mtas='http://schemas.ericsson.com/ema/UserProvisioning/MTAS/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/MTAS/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<mtas:publicId>"+publicId+"</mtas:publicId>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<mtas:setSubscription publicId='"+publicId+"'>"+
+"<mtas:services>"+
+"<mtas:outgoing-communication-barring>"+
+"<mtas:ocb-operator-configuration>"+
+"<mtas:activated>true</mtas:activated>"+
+"<mtas:ocb-ruleset>"+
+"<mtas:ocb-rule id='OCB_BORO'>"+
+"<mtas:ocb-conditions>"+
+"<mtas:rule-deactivated>false</mtas:rule-deactivated>"+
+"<mtas:roaming>true</mtas:roaming>"+
+"</mtas:ocb-conditions>"+
+"</mtas:ocb-rule>"+
+"</mtas:ocb-ruleset>"+
+"</mtas:ocb-operator-configuration>"+
+"</mtas:outgoing-communication-barring>"+
+"</mtas:services>"+
+"</mtas:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function Addoutgoingcommunicationbarring(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:mtas='http://schemas.ericsson.com/ema/UserProvisioning/MTAS/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/MTAS/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<mtas:publicId>"+publicId+"</mtas:publicId>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<mtas:setSubscription publicId='"+publicId+"'>"+
+"<mtas:services>"+
+"<mtas:outgoing-communication-barring>"+
+"<mtas:ocb-operator-configuration>"+
+"<mtas:activated>true</mtas:activated>"+
+"<mtas:ocb-ruleset>"+
+"<mtas:ocb-rule id='OCB_BAOC'>"+
+"<mtas:ocb-conditions>"+
+"<mtas:rule-deactivated>false</mtas:rule-deactivated>"+
+"</mtas:ocb-conditions>"+
+"</mtas:ocb-rule>"+
+"</mtas:ocb-ruleset>"+
+"</mtas:ocb-operator-configuration>"+
+"</mtas:outgoing-communication-barring>"+
+"</mtas:services>"+
+"</mtas:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function Addoutgoinginterantionalcommunicationbarring(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:mtas='http://schemas.ericsson.com/ema/UserProvisioning/MTAS/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/MTAS/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<mtas:publicId>"+publicId+"</mtas:publicId>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<mtas:setSubscription publicId='"+publicId+"'>"+
+"<mtas:services>"+
+"<mtas:outgoing-communication-barring>"+
+"<mtas:ocb-operator-configuration>"+
+"<mtas:activated>true</mtas:activated>"+
+"<mtas:ocb-ruleset>"+
+"<mtas:ocb-rule id='OCB_BOIC'>"+
+"<mtas:ocb-conditions>"+
+"<mtas:rule-deactivated>false</mtas:rule-deactivated>"+
+"<mtas:international>true</mtas:international>"+
+"</mtas:ocb-conditions>"+
+"</mtas:ocb-rule>"+
+"</mtas:ocb-ruleset>"+
+"</mtas:ocb-operator-configuration>"+
+"</mtas:outgoing-communication-barring>"+
+"</mtas:services>"+
+"</mtas:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function RemoveCFNRC(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:mtas='http://schemas.ericsson.com/ema/UserProvisioning/MTAS/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/MTAS/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<mtas:publicId>"+publicId+"</mtas:publicId>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<mtas:setSubscription publicId='"+publicId+"'>"+
+"<mtas:services>"+
+"<mtas:communication-diversion>"+
+"<mtas:cdiv-user-configuration>"+
+"<mtas:active>true</mtas:active>"+
+"<mtas:cdiv-ruleset>"+
+"<mtas:cdiv-rule id='call-diversion-busy'>"+
+"<mtas:cdiv-conditions>"+
+"<mtas:rule-deactivated>true</mtas:rule-deactivated>"+
+"<mtas:cdiv-call-state>not-reachable</mtas:cdiv-call-state>"+
+"</mtas:cdiv-conditions>"+
+"<mtas:cdiv-actions>"+
+"<mtas:forward-to>"+
+"<mtas:target></mtas:target>"+
+"<mtas:notify-served-user>false</mtas:notify-served-user>"+
+"<mtas:notify-served-user-on-outbound-call>false</mtas:notify-served-user-on-outbound-call>"+
+"</mtas:forward-to>"+
+"</mtas:cdiv-actions>"+
+"</mtas:cdiv-rule>"+
+"</mtas:cdiv-ruleset>"+
+"</mtas:cdiv-user-configuration>"+
+"</mtas:communication-diversion>"+
+"</mtas:services>"+
+"</mtas:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function RemoveCFU(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:mtas='http://schemas.ericsson.com/ema/UserProvisioning/MTAS/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/MTAS/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<mtas:publicId>"+publicId+"</mtas:publicId>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<mtas:setSubscription publicId='"+publicId+"'>"+
+"<mtas:services>"+
+"<mtas:communication-diversion>"+
+"<mtas:cdiv-user-configuration>"+
+"<mtas:active>true</mtas:active>"+
+"<mtas:cdiv-ruleset>"+
+"<mtas:cdiv-rule id='call-diversion-unconditional'>"+
+"<mtas:cdiv-conditions>"+
+"<mtas:rule-deactivated>true</mtas:rule-deactivated>"+
+"</mtas:cdiv-conditions>"+
+"<mtas:cdiv-actions>"+
+"<mtas:forward-to>"+
+"<mtas:target></mtas:target>"+
+"<mtas:notify-served-user>false</mtas:notify-served-user>"+
+"<mtas:notify-served-user-on-outbound-call>false</mtas:notify-served-user-on-outbound-call>"+
+"</mtas:forward-to>"+
+"</mtas:cdiv-actions>"+
+"</mtas:cdiv-rule>"+
+"</mtas:cdiv-ruleset>"+
+"</mtas:cdiv-user-configuration>"+
+"</mtas:communication-diversion>"+
+"</mtas:services>"+
+"</mtas:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function RemoveCLIPlus(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:mtas='http://schemas.ericsson.com/ema/UserProvisioning/MTAS/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+"<soapenv:Header>"+
+"<cai3:SessionId>e6936a3d48034f7aa395df290f174392</cai3:SessionId>"+
+"</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/MTAS/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<mtas:publicId>"+publicId+"</mtas:publicId>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<mtas:setSubscription publicId='"+publicId+"'>"+
+"<mtas:services>"+
+"<mtas:communication-diversion>"+
+"<mtas:cdiv-user-configuration>"+
+"<mtas:active>true</mtas:active>"+
+"<mtas:cdiv-ruleset>"+
+"<mtas:cdiv-rule id='call-diversion-unconditional'>"+
+"<mtas:cdiv-conditions>"+
+"<mtas:rule-deactivated>true</mtas:rule-deactivated>"+
+"</mtas:cdiv-conditions>"+
+"<mtas:cdiv-actions>"+
+"<mtas:forward-to>"+
+"<mtas:target></mtas:target>"+
+"<mtas:notify-served-user>false</mtas:notify-served-user>"+
+"<mtas:notify-served-user-on-outbound-call>false</mtas:notify-served-user-on-outbound-call>"+
+"</mtas:forward-to>"+
+"</mtas:cdiv-actions>"+
+"</mtas:cdiv-rule>"+
+"</mtas:cdiv-ruleset>"+
+"</mtas:cdiv-user-configuration>"+
+"</mtas:communication-diversion>"+
+"</mtas:services>"+
+"</mtas:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function RemoveCLIR(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:mtas='http://schemas.ericsson.com/ema/UserProvisioning/MTAS/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/MTAS/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<mtas:publicId>sip:+962790640534@ims.mnc001.mcc416.3gppnetwork.org</mtas:publicId>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<mtas:setSubscription publicId='sip:+962790640534@ims.mnc001.mcc416.3gppnetwork.org'>"+
+"<mtas:services>"+
+"<mtas:originating-identity-presentation-restriction>"+
+"<mtas:oir-operator-configuration>"+
+"<mtas:activated>true</mtas:activated>"+
+"<mtas:mode>ad-hoc-temporary-presentation-not-restricted</mtas:mode>"+
+"<mtas:restriction>only-identity</mtas:restriction>"+
+"</mtas:oir-operator-configuration>"+
+"<mtas:oir-user-configuration>"+
+"<mtas:active>true</mtas:active>"+
+"<mtas:default-behaviour>presentation-not-restricted</mtas:default-behaviour>"+
+"</mtas:oir-user-configuration>"+
+"</mtas:originating-identity-presentation-restriction>"+
+"</mtas:services>"+
+"</mtas:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function RemoveRBT(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:mtas='http://schemas.ericsson.com/ema/UserProvisioning/MTAS/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/MTAS/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<mtas:publicId>"+publicId+"</mtas:publicId>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<mtas:setSubscription publicId='"+publicId+"'>"+
+"<mtas:services>"+
+"<mtas:customized-alerting-tone>"+
+"<mtas:cat-operator-configuration>"+
+"<mtas:activated>false</mtas:activated>"+
+"</mtas:cat-operator-configuration>"+
+"</mtas:customized-alerting-tone>"+
+"</mtas:services>"+
+"</mtas:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function Removeincommingcommunicationbarring(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:mtas='http://schemas.ericsson.com/ema/UserProvisioning/MTAS/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/MTAS/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<mtas:publicId>"+publicId+"</mtas:publicId>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<mtas:setSubscription publicId="+publicId+">"+
+"<mtas:services>"+
+"<mtas:incoming-communication-barring>"+
+"<mtas:icb-operator-configuration>"+
+"<mtas:activated>true</mtas:activated>"+
+"<mtas:icb-ruleset>"+
+"<mtas:icb-rule id='ICB_BAIC'>"+
+"<mtas:icb-conditions>"+
+"<mtas:rule-deactivated>true</mtas:rule-deactivated>"+
+"</mtas:icb-conditions>"+
+"</mtas:icb-rule>"+
+"</mtas:icb-ruleset>"+
+"</mtas:icb-operator-configuration>"+
+"</mtas:incoming-communication-barring>"+
+"</mtas:services>"+
+"</mtas:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function RemoveoutgoingRoamingcommunicationbarring(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:mtas='http://schemas.ericsson.com/ema/UserProvisioning/MTAS/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/MTAS/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<mtas:publicId>"+publicId+"</mtas:publicId>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<mtas:setSubscription publicId="+publicId+">"+
+"<mtas:services>"+
+"<mtas:outgoing-communication-barring>"+
+"<mtas:ocb-operator-configuration>"+
+"<mtas:activated>true</mtas:activated>"+
+"<mtas:ocb-ruleset>"+
+"<mtas:ocb-rule id='OCB_BORO'>"+
+"<mtas:ocb-conditions>"+
+"<mtas:rule-deactivated>true</mtas:rule-deactivated>"+
+"<mtas:roaming>true</mtas:roaming>"+
+"</mtas:ocb-conditions>"+
+"</mtas:ocb-rule>"+
+"</mtas:ocb-ruleset>"+
+"</mtas:ocb-operator-configuration>"+
+"</mtas:outgoing-communication-barring>"+
+"</mtas:services>"+
+"</mtas:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function Removeoutgoingcommunicationbarring(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:mtas='http://schemas.ericsson.com/ema/UserProvisioning/MTAS/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/MTAS/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<mtas:publicId>"+publicId+"</mtas:publicId>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<mtas:setSubscription publicId='"+publicId+"'>"+
+"<mtas:services>"+
+"<mtas:outgoing-communication-barring>"+
+"<mtas:ocb-operator-configuration>"+
+"<mtas:activated>true</mtas:activated>"+
+"<mtas:ocb-ruleset>"+
+"<mtas:ocb-rule id='OCB_BAOC'>"+
+"<mtas:ocb-conditions>"+
+"<mtas:rule-deactivated>true</mtas:rule-deactivated>"+
+"</mtas:ocb-conditions>"+
+"</mtas:ocb-rule>"+
+"</mtas:ocb-ruleset>"+
+"</mtas:ocb-operator-configuration>"+
+"</mtas:outgoing-communication-barring>"+
+"</mtas:services>"+
+"</mtas:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function Removeoutgoinginterantionalcommunicationbarring(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:mtas='http://schemas.ericsson.com/ema/UserProvisioning/MTAS/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/MTAS/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<mtas:publicId>"+publicId+"</mtas:publicId>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<mtas:setSubscription publicId="+publicId+">"+
+"<mtas:services>"+
+"<mtas:outgoing-communication-barring>"+
+"<mtas:ocb-operator-configuration>"+
+"<mtas:activated>true</mtas:activated>"+
+"<mtas:ocb-ruleset>"+
+"<mtas:ocb-rule id='OCB_BOIC'>"+
+"<mtas:ocb-conditions>"+
+"<mtas:rule-deactivated>true</mtas:rule-deactivated>"+
+"<mtas:international>true</mtas:international>"+
+"</mtas:ocb-conditions>"+
+"</mtas:ocb-rule>"+
+"</mtas:ocb-ruleset>"+
+"</mtas:ocb-operator-configuration>"+
+"</mtas:outgoing-communication-barring>"+
+"</mtas:services>"+
+"</mtas:setSubscription>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function originatingidentitypresentation(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:mtas='http://schemas.ericsson.com/ema/UserProvisioning/MTAS/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3g:Set>"+
+"<cai3g:MOType>Subscription@http://schemas.ericsson.com/ema/UserProvisioning/MTAS/</cai3g:MOType>"+
+"<cai3g:MOId>"+
+"<mtas:setSubscription publicId>"+publicId+"</mtas:publicId>"+
+"</cai3g:MOId>"+
+"<cai3g:MOAttributes>"+
+"<mtas:setMMTel publicId="+publicId+">"+
+"<mtas:originating-identity-presentation>"+
+"<mtas:oip-operator-configuration>"+
+"<mtas:activated>true</mtas:activated>"+
+"<mtas:restriction-override>override-active</mtas:restriction-override>"+
+"</mtas:oip-operator-configuration>"+
+"<mtas:oip-user-configuration>"+
+"<mtas:active>true</mtas:active>"+
+"</mtas:oip-user-configuration>"+
+"</mtas:originating-identity-presentation>"+
+"</mtas:setMMTel>"+
+"</cai3g:MOAttributes>"+
+"</cai3g:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function DOWNGRADEn(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:pcrf='http://schemas.ericsson.com/ma/CA/PCRF/'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>PCRFUser@http://schemas.ericsson.com/ma/CA/PCRF/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<pcrf:usrIdentifier>"+usrIdentifier+"</pcrf:usrIdentifier>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<pcrf:SetPCRFUser>"+
+"<pcrf:subscribeServicePackage>"+
+"<pcrf:usrIdentifier>"+usrIdentifier+"</pcrf:usrIdentifier>"+
+"<pcrf:srvpkgName>"+srvpkgName+"</pcrf:srvpkgName>"+
+"</pcrf:subscribeServicePackage>"+
+"</pcrf:SetPCRFUser>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+  function UPGRADE(){
+   
+    
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:pcrf='http://schemas.ericsson.com/ma/CA/PCRF/'>"+
+   "<soapenv:Header>"+
+     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+            "<wsse:UsernameToken>"+
+                "<wsse:Username>mesaimi</wsse:Username>"+
+                "<wsse:Password>Zain@1234</wsse:Password>"+
+            "</wsse:UsernameToken>"+
+        "</wsse:Security>"+
+   "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>PCRFUser@http://schemas.ericsson.com/ma/CA/PCRF/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<pcrf:usrIdentifier>"+usrIdentifier+"</pcrf:usrIdentifier>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<pcrf:SetPCRFUser>"+
+"<pcrf:unSubscribeServicePackage>"+
+"<pcrf:usrIdentifier>"+usrIdentifier+"</pcrf:usrIdentifier>"+
+"<pcrf:srvpkgName>"+srvpkgName+"</pcrf:srvpkgName>"+
+"</pcrf:unSubscribeServicePackage>"+
+"</pcrf:SetPCRFUser>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
+
+
+
   return (
     <>
       <div className="content">
@@ -52,6 +3855,9 @@ function Typography() {
                           defaultValue="962*********"
                           placeholder="Msisdn"
                           type="text"
+                          name="msisdn"
+                          value={msisdn}
+                                onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -64,6 +3870,7 @@ function Typography() {
                           defaultValue="BAR"
                           placeholder="refillBarAction"
                           type="text"
+                          name="action"
                         />
                       </FormGroup>
                     </Col>
@@ -71,7 +3878,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={bar}>
                   Save
                 </Button>
               </CardFooter>
@@ -318,6 +4125,9 @@ function Typography() {
                           defaultValue="962*********"
                           placeholder="Msisdn"
                           type="text"
+                          name="msisdn"
+                          value={msisdn}
+                                onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -330,6 +4140,9 @@ function Typography() {
                           defaultValue=""
                           placeholder="accumulatorID"
                           type="text"
+                          name="accumulatorId"
+                          value={accumulatorID}
+                                onChange={(e) => setAccumulatorID(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -342,6 +4155,9 @@ function Typography() {
                           defaultValue=""
                           placeholder="accumulatorValueAbsolute"
                           type="text"
+                          name="accumulatorValueAbsolute"
+                          value={accumulatorValueAbsolute}
+                                onChange={(e) => setAccumulatorValueAbsolute(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -349,7 +4165,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={moneyTransferUnbaring}>
                   Save
                 </Button>
               </CardFooter>
@@ -368,6 +4184,9 @@ function Typography() {
                           defaultValue="962*********"
                           placeholder="Msisdn"
                           type="text"
+                          name="msisdn"
+                          value={msisdn}
+                                onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -380,6 +4199,9 @@ function Typography() {
                           defaultValue="C"
                           placeholder="accumulatorID"
                           type="text"
+                          name="accumulatorID"
+                          value={accumulatorID}
+                                onChange={(e) => setAccumulatorID(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -392,6 +4214,9 @@ function Typography() {
                           defaultValue=""
                           placeholder="accumulatorValueAbsolute"
                           type="text"
+                          name="accumulatorValueAbsolute"
+                          value={accumulatorValueAbsolute}
+                                onChange={(e) => setAccumulatorValueAbsolute(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -399,7 +4224,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={moneyTransferUnbaring}>
                   Save
                 </Button>
               </CardFooter>
@@ -419,6 +4244,9 @@ function Typography() {
                           defaultValue="962*********"
                           placeholder="Msisdn"
                           type="text"
+                          name="msisdn"
+                          value={msisdn}
+                                onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -426,11 +4254,14 @@ function Typography() {
                   <Row>
                   <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>pamServiceID</label>
+                        <label>schedule ID</label>
                         <Input
                           defaultValue=""
-                          placeholder="pamServiceID"
+                          placeholder="schedule ID"
                           type="text"
+                          name="scheduleID"
+                          value={scheduleID}
+                                onChange={(e) => setScheduleID(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -438,7 +4269,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={changeBillCycle}>
                   Save
                 </Button>
               </CardFooter>
@@ -457,6 +4288,9 @@ function Typography() {
                           defaultValue="962*********"
                           placeholder="Msisdn"
                           type="text"
+                          name="msisdn"
+                          value={msisdn}
+                                onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -464,7 +4298,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={trcUnlock}>
                   Save
                 </Button>
               </CardFooter>
@@ -483,6 +4317,9 @@ function Typography() {
                           defaultValue="962*********"
                           placeholder="Msisdn"
                           type="text"
+                          name="msisdn"
+                          value={msisdn}
+                                onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -490,7 +4327,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={trcLock}>
                   Save
                 </Button>
               </CardFooter>
@@ -658,6 +4495,9 @@ function Typography() {
                           defaultValue="962*********"
                           placeholder="Msisdn"
                           type="text"
+                          name="msisdn"
+                          value={msisdn}
+                                onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -665,11 +4505,14 @@ function Typography() {
                   <Row>
                   <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>adjustmentAmountRelative</label>
+                        <label>adjustment Amount Relative</label>
                         <Input
                           defaultValue="1000"
-                          placeholder="adjustmentAmountRelative"
+                          placeholder="adjustment Amount Relative"
                           type="text"
+                          name="adjustmentAmountRelative"
+                          value={adjustmentAmountRelative}
+                                onChange={(e) => setAdjustmentAmountRelative(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -677,7 +4520,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={mainAccountRecharge}>
                   Save
                 </Button>
               </CardFooter>
@@ -697,6 +4540,8 @@ function Typography() {
                           defaultValue="962*********"
                           placeholder="Msisdn"
                           type="text"
+                          name="msisdn"
+                                onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -704,11 +4549,13 @@ function Typography() {
                   <Row>
                   <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>dedicatedAccountID</label>
+                        <label>dedicated Account ID</label>
                         <Input
-                          defaultValue="101"
-                          placeholder="dedicatedAccountID"
+                          
+                          placeholder="dedicated Account ID"
                           type="text"
+                          name="DAID"
+                          onChange={(e) => setDaid(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -716,11 +4563,13 @@ function Typography() {
                   <Row>
                   <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>dedicatedAccountValueNew</label>
+                        <label>dedicated Account Value New</label>
                         <Input
-                          defaultValue="2147483648"
-                          placeholder="dedicatedAccountValueNew"
+                          defaultValue="0"
+                          placeholder="dedicated Account Value New"
                           type="text"
+                          name="DAValue"
+                          onChange={(e) => setDavalue(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -728,7 +4577,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={setDataDaValue}>
                   Save
                 </Button>
               </CardFooter>
@@ -748,6 +4597,8 @@ function Typography() {
                           defaultValue="962*********"
                           placeholder="Msisdn"
                           type="text"
+                          name="msisdn"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -755,11 +4606,12 @@ function Typography() {
                   <Row>
                   <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>dedicatedAccountID</label>
+                        <label>dedicated Account ID</label>
                         <Input
-                          defaultValue="51"
-                          placeholder="dedicatedAccountID"
+                        placeholder="dedicatedAccountID"
                           type="text"
+                          name="DAID"
+                          onChange={(e) => setDaid(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -767,11 +4619,12 @@ function Typography() {
                   <Row>
                   <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>dedicatedAccountValueNew</label>
+                        <label>dedicated Account Value New</label>
                         <Input
-                          defaultValue="1000"
-                          placeholder="dedicatedAccountValueNew"
+                          placeholder="dedicated Account Value New"
                           type="text"
+                          name="DAValue"
+                          onChange={(e) => setDavalue(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -779,7 +4632,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={setMinutesDaValue}>
                   Save
                 </Button>
               </CardFooter>
@@ -862,6 +4715,8 @@ function Typography() {
                           defaultValue="962*********"
                           placeholder="Msisdn"
                           type="text"
+                          name="msisdn"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -869,11 +4724,12 @@ function Typography() {
                   <Row>
                   <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>dedicatedAccountID</label>
+                        <label>dedicated Account ID</label>
                         <Input
-                          defaultValue="101"
                           placeholder="dedicatedAccountID"
                           type="text"
+                          name="DAID"
+                          onChange={(e) => setDaid(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -881,11 +4737,12 @@ function Typography() {
                   <Row>
                   <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>dedicatedAccountValueNew</label>
+                        <label>dedicated Account Value New</label>
                         <Input
-                          defaultValue="2147483648"
-                          placeholder="dedicatedAccountValueNew"
+                          placeholder="dedicated Account Value New"
                           type="text"
+                          name="DAValue"
+                          onChange={(e) => setDavalue(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -893,7 +4750,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={setDataDaValueRelative}>
                   Save
                 </Button>
               </CardFooter>
@@ -913,6 +4770,8 @@ function Typography() {
                           defaultValue="962*********"
                           placeholder="Msisdn"
                           type="text"
+                          name="msisdn"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -920,11 +4779,12 @@ function Typography() {
                   <Row>
                   <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>dedicatedAccountID</label>
+                        <label>dedicated Account ID</label>
                         <Input
-                          defaultValue="51"
-                          placeholder="dedicatedAccountID"
+                          placeholder="dedicated Account ID"
                           type="text"
+                          name="DAID"
+                          onChange={(e) => setDaid(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -932,11 +4792,12 @@ function Typography() {
                   <Row>
                   <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>dedicatedAccountValueNew</label>
+                        <label>dedicated Account Value New</label>
                         <Input
-                          defaultValue="1000"
-                          placeholder="dedicatedAccountValueNew"
+                          placeholder="dedicated Account Value New"
                           type="text"
+                          name="DAValue"
+                          onChange={(e) => setDavalue(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -944,7 +4805,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={setMinutesDaValueRelative}>
                   Save
                 </Button>
               </CardFooter>
@@ -1024,9 +4885,10 @@ function Typography() {
                       <FormGroup>
                         <label>Msisdn</label>
                         <Input
-                          defaultValue="962*********"
-                          placeholder="Msisdn"
-                          type="text"
+                           placeholder="Msisdn"
+                           type="text"
+                           name="msisdn"
+                           onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1036,9 +4898,10 @@ function Typography() {
                       <FormGroup>
                         <label>cc1</label>
                         <Input
-                          defaultValue="5000"
                           placeholder="cc1"
-                          type="text"
+                          type="number"
+                          name="cc1"
+                          onChange={(e) => setCc1(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1046,7 +4909,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={setCommunityCc1}>
                   Save
                 </Button>
               </CardFooter>
@@ -1063,9 +4926,10 @@ function Typography() {
                       <FormGroup>
                         <label>Msisdn</label>
                         <Input
-                          defaultValue="962*********"
                           placeholder="Msisdn"
-                          type="text"
+                          type="number"
+                          name="msisdn"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1075,9 +4939,10 @@ function Typography() {
                       <FormGroup>
                         <label>cc2</label>
                         <Input
-                          defaultValue="999999"
                           placeholder="cc2"
-                          type="text"
+                          type="number"
+                          name="cc2"
+                          onChange={(e) => setCc2(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1085,7 +4950,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={setCommunityCc2}>
                   Save
                 </Button>
               </CardFooter>
@@ -1102,9 +4967,10 @@ function Typography() {
                       <FormGroup>
                         <label>Msisdn</label>
                         <Input
-                          defaultValue="962*********"
                           placeholder="Msisdn"
-                          type="text"
+                          type="number"
+                          name="msisdn"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1114,9 +4980,10 @@ function Typography() {
                       <FormGroup>
                         <label>cc3</label>
                         <Input
-                          defaultValue="6"
                           placeholder="cc3"
-                          type="text"
+                          type="number"
+                          name="cc3"
+                          onChange={(e) => setCc3(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1124,46 +4991,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
-                  Save
-                </Button>
-              </CardFooter>
-            </Card>
-
-            <Card>
-              <CardHeader>
-                <h5 className="title">set Community CC3&2&1</h5>
-              </CardHeader>
-              <CardBody>
-                <Form>
-                  <Row>
-                    <Col className="pr-md-1" md="5">
-                      <FormGroup>
-                        <label>Msisdn</label>
-                        <Input
-                          defaultValue="962*********"
-                          placeholder="Msisdn"
-                          type="text"
-                        />
-                      </FormGroup>
-                    </Col>
-                  </Row>
-                  <Row>
-                  <Col className="pr-md-1" md="5">
-                      <FormGroup>
-                        <label>cc1</label>
-                        <Input
-                          defaultValue="6"
-                          placeholder="cc1"
-                          type="text"
-                        />
-                      </FormGroup>
-                    </Col>
-                  </Row>
-                </Form>
-              </CardBody>
-              <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={setCommunityCc3}>
                   Save
                 </Button>
               </CardFooter>
@@ -1183,6 +5011,8 @@ function Typography() {
                           defaultValue="962*********"
                           placeholder="Msisdn"
                           type="text"
+                          name="msisdn"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1190,7 +5020,7 @@ function Typography() {
                   <Row>
                   <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>transactionAmount</label>
+                        <label>transaction Amount</label>
                         <Input
                           defaultValue="10000"
                           placeholder="transactionAmount"
@@ -1268,11 +5098,12 @@ function Typography() {
                   <Row>
                     <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>subscriberNumber</label>
+                        <label>msisdn</label>
                         <Input
-                          defaultValue="962*********"
-                          placeholder="subscriberNumber"
-                          type="text"
+                          placeholder="msisdn"
+                          type="number"
+                          name="msisdn"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1280,23 +5111,12 @@ function Typography() {
                   <Row>
                     <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>offerType</label>
+                        <label>ProviderID</label>
                         <Input
-                          defaultValue="3"
-                          placeholder="offerType"
-                          type="text"
-                        />
-                      </FormGroup>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col className="pr-md-1" md="5">
-                      <FormGroup>
-                        <label>offerProviderID</label>
-                        <Input
-                          defaultValue=""
-                          placeholder="offerProviderID"
-                          type="text"
+                          placeholder="ProviderID"
+                          type="number"
+                          name="providerID"
+                          onChange={(e) => setProviderID(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1304,7 +5124,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={addSharedOffer}>
                   Save
                 </Button>
               </CardFooter>
@@ -1321,11 +5141,12 @@ function Typography() {
                   <Row>
                     <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>subscriberNumber</label>
+                        <label>MSISDN</label>
                         <Input
-                          defaultValue="962*********"
-                          placeholder="subscriberNumber"
-                          type="text"
+                          placeholder="msisdn"
+                          type="number"
+                          name="msisdn"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1333,11 +5154,12 @@ function Typography() {
                   <Row>
                     <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>usageCounterID</label>
+                        <label>Usage Counter ID</label>
                         <Input
-                          defaultValue="5051"
-                          placeholder="usageCounterID"
-                          type="text"
+                          placeholder="Usage Counter ID"
+                          type="number"
+                          name="uc"
+                          onChange={(e) => setUc(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1345,11 +5167,12 @@ function Typography() {
                   <Row>
                     <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>usageCounterMonetaryValueNew</label>
+                        <label>Usage Counter Monetary Value New</label>
                         <Input
-                          defaultValue="2147483648"
-                          placeholder="usageCounterMonetaryValueNew"
-                          type="text"
+                          placeholder="Value"
+                          type="number"
+                          name="ucValue"
+                          onChange={(e) => setUcValue(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1357,7 +5180,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={setUcMValue}>
                   Save
                 </Button>
               </CardFooter>
@@ -1374,9 +5197,10 @@ function Typography() {
                       <FormGroup>
                         <label>subscriberNumber</label>
                         <Input
-                          defaultValue="962*********"
-                          placeholder="subscriberNumber"
-                          type="text"
+                          placeholder="msisdn"
+                          type="number"
+                          name="msisdn"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1384,11 +5208,12 @@ function Typography() {
                   <Row>
                     <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>usageCounterID</label>
+                        <label>Usage Counter ID</label>
                         <Input
-                          defaultValue="5051"
-                          placeholder="usageCounterID"
-                          type="text"
+                          placeholder="Usage Counter ID"
+                          type="number"
+                          name="uc"
+                          onChange={(e) => setUc(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1396,11 +5221,12 @@ function Typography() {
                   <Row>
                     <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>usageCounterMonetaryValueNew</label>
+                        <label>Usage Counter Non Monetary Value New</label>
                         <Input
-                          defaultValue="2147483648"
-                          placeholder="usageCounterMonetaryValueNew"
-                          type="text"
+                           placeholder="Value"
+                           type="number"
+                           name="ucValue"
+                           onChange={(e) => setUcValue(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1408,7 +5234,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={setUcNMValue}>
                   Save
                 </Button>
               </CardFooter>
@@ -1425,9 +5251,10 @@ function Typography() {
                       <FormGroup>
                         <label>subscriberNumber</label>
                         <Input
-                          defaultValue="962*********"
-                          placeholder="subscriberNumber"
-                          type="text"
+                           placeholder="msisdn"
+                           type="number"
+                           name="msisdn"
+                           onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1435,11 +5262,12 @@ function Typography() {
                   <Row>
                     <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>usageThresholdID</label>
+                        <label>Usage Threshold ID</label>
                         <Input
-                          defaultValue="5051"
-                          placeholder="usageThresholdID"
-                          type="text"
+                          placeholder="Usage Threshold ID"
+                          type="number"
+                          name="ut"
+                           onChange={(e) => setUt(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1447,11 +5275,12 @@ function Typography() {
                   <Row>
                     <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>usageThresholdMonetaryValueNew</label>
+                        <label>Usage Threshold Monetary Value New</label>
                         <Input
-                          defaultValue="6000"
-                          placeholder="usageThresholdMonetaryValueNew"
-                          type="text"
+                          placeholder="Value"
+                          type="number"
+                          name="utValue"
+                           onChange={(e) => setUtValue(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1459,7 +5288,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={setUtValueN}>
                   Save
                 </Button>
               </CardFooter>
@@ -1474,11 +5303,12 @@ function Typography() {
                   <Row>
                     <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>subscriberNumber</label>
+                        <label>msisdn</label>
                         <Input
-                          defaultValue="962*********"
-                          placeholder="subscriberNumber"
-                          type="text"
+                          placeholder="msisdn"
+                          type="number"
+                          name="msisdn"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1486,11 +5316,12 @@ function Typography() {
                   <Row>
                     <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>fafNumber</label>
+                        <label>faf Number</label>
                         <Input
-                          defaultValue="00962*********"
                           placeholder="fafNumber"
                           type="text"
+                          name="fafNumber"
+                          onChange={(e) => setFafNumber(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1498,7 +5329,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={setFafNumberN}>
                   Save
                 </Button>
               </CardFooter>
@@ -1513,11 +5344,12 @@ function Typography() {
                   <Row>
                     <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>subscriberNumber</label>
+                        <label>MSISDN</label>
                         <Input
-                          defaultValue="962*********"
-                          placeholder="subscriberNumber"
-                          type="text"
+                          placeholder="msisdn"
+                          type="number"
+                          name="msisdn"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1527,9 +5359,10 @@ function Typography() {
                       <FormGroup>
                         <label>languageIDNew</label>
                         <Input
-                          defaultValue="2*********"
-                          placeholder="languageIDNew"
-                          type="text"
+                          placeholder="language ID"
+                          type="number"
+                          name="languageID"
+                          onChange={(e) => setLanguageID(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1537,7 +5370,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={setLanguage}>
                   Save
                 </Button>
               </CardFooter>
@@ -1555,9 +5388,10 @@ function Typography() {
                       <FormGroup>
                         <label>imsi</label>
                         <Input
-                          defaultValue="416011019768333"
-                          placeholder="imsi"
-                          type="text"
+                        placeholder="imsi"
+                          type="number"
+                          name="imsi"
+                          onChange={(e) => setImsi(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1567,9 +5401,10 @@ function Typography() {
                       <FormGroup>
                         <label>epsZoneCodeSetId</label>
                         <Input
-                          defaultValue="4"
-                          placeholder="epsZoneCodeSetId"
+                          placeholder="eps Zone Code Set Id"
                           type="text"
+                          name="epsZoneCodeSetId"
+                          onChange={(e) => setEpsZoneCodeSetId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1578,6 +5413,7 @@ function Typography() {
               </CardBody>
               <CardFooter>
                 <Button className="btn-fill" color="primary" type="submit">
+                onClick={removeBaringOnLTE}
                   Save
                 </Button>
               </CardFooter>
@@ -1595,9 +5431,10 @@ function Typography() {
                       <FormGroup>
                         <label>imsi</label>
                         <Input
-                          defaultValue="416011019768333"
                           placeholder="imsi"
-                          type="text"
+                          type="number"
+                          name="imsi"
+                          onChange={(e) => setImsi(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1607,9 +5444,10 @@ function Typography() {
                       <FormGroup>
                         <label>epsOdb</label>
                         <Input
-                          defaultValue="ODB-ALL"
                           placeholder="epsOdb"
                           type="text"
+                          name="epsOdb"
+                          onChange={(e) => setEpsOdb(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1617,7 +5455,7 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={SetBarringOnLTE}>
                   Save
                 </Button>
               </CardFooter>
@@ -1636,9 +5474,10 @@ function Typography() {
                       <FormGroup>
                         <label>imsi</label>
                         <Input
-                          defaultValue="416011019768333"
                           placeholder="imsi"
-                          type="text"
+                          type="number"
+                          name="imsi"
+                          onChange={(e) => setImsi(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1646,11 +5485,12 @@ function Typography() {
                   <Row>
                     <Col className="pr-md-1" md="5">
                       <FormGroup>
-                        <label>epsProfileId</label>
+                        <label>eps ProfileId</label>
                         <Input
-                          defaultValue="zainnnnnn"
-                          placeholder="epsProfileId"
+                          placeholder="eps ProfileId"
                           type="text"
+                          name="epsProfileId"
+                          onChange={(e) => setEpsProfileId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -1658,53 +5498,13 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit" onClick={SetEpsProfileId}>
                   Save
                 </Button>
               </CardFooter>
             </Card>
-
             
-            <Card>
-              <CardHeader>
-                <h5 className="title">SET HSS Profile ID</h5>
-              </CardHeader>
-              <CardBody>
-                <Form>
-                  <Row>
-                    <Col className="pr-md-1" md="5">
-                      <FormGroup>
-                        <label>imsi</label>
-                        <Input
-                          defaultValue="416011019768333"
-                          placeholder="imsi"
-                          type="text"
-                        />
-                      </FormGroup>
-                    </Col>
-                  </Row>
-                  <Row>
-                    <Col className="pr-md-1" md="5">
-                      <FormGroup>
-                        <label>epsProfileId</label>
-                        <Input
-                          defaultValue="zainnnnnn"
-                          placeholder="epsProfileId"
-                          type="text"
-                        />
-                      </FormGroup>
-                    </Col>
-                  </Row>
-                </Form>
-              </CardBody>
-              <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
-                  Save
-                </Button>
-              </CardFooter>
-            </Card>
-
-            <Card>
+             <Card>
               <CardHeader>
                 <h5 className="title">ADD OBO OBI OBR Barring</h5>
               </CardHeader>
@@ -5498,7 +9298,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                >
                   Save
                 </Button>
               </CardFooter>
@@ -5533,7 +9334,11 @@ function Typography() {
               </CardFooter>
             </Card>
 
-                
+
+
+
+
+
             <Card>
               <CardHeader>
                 <h5 className="title">Remove Ring Back Tone</h5>
@@ -5548,6 +9353,7 @@ function Typography() {
                           defaultValue="96279*******"
                           placeholder="msisdn"
                           type="text"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -5555,7 +9361,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={RemoveRingBackTone} >
                   Save
                 </Button>
               </CardFooter>
@@ -5576,6 +9383,7 @@ function Typography() {
                           defaultValue="96279*******"
                           placeholder="msisdn"
                           type="text"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -5583,7 +9391,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={RemoveSMSIncomingBaring} >
                   Save
                 </Button>
               </CardFooter>
@@ -5605,6 +9414,7 @@ function Typography() {
                           defaultValue="96279*******"
                           placeholder="msisdn"
                           type="text"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -5612,7 +9422,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={RemoveSpecialRoaming}>
                   Save
                 </Button>
               </CardFooter>
@@ -5633,6 +9444,7 @@ function Typography() {
                           defaultValue="96279*******"
                           placeholder="msisdn"
                           type="text"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -5640,7 +9452,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={RemoveSpecialRoamingAndkeepInternational}>
                   Save
                 </Button>
               </CardFooter>
@@ -5660,6 +9473,7 @@ function Typography() {
                           defaultValue="96279*******"
                           placeholder="msisdn"
                           type="text"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -5667,7 +9481,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={RemoveZainGPRSService}>
                   Save
                 </Button>
               </CardFooter>
@@ -5689,6 +9504,7 @@ function Typography() {
                           defaultValue="96279*******"
                           placeholder="msisdn"
                           type="text"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -5696,7 +9512,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={SETOBOOBIOSBBarring}>
                   Save
                 </Button>
               </CardFooter>
@@ -5717,6 +9534,7 @@ function Typography() {
                           defaultValue="96279*******"
                           placeholder="msisdn"
                           type="text"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -5736,7 +9554,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={SOCLIP}>
                   Save
                 </Button>
               </CardFooter>
@@ -5759,6 +9578,7 @@ function Typography() {
                           defaultValue="96279*******"
                           placeholder="msisdn"
                           type="text"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -5790,7 +9610,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={SOCLIR}>
                   Save
                 </Button>
               </CardFooter>
@@ -5813,6 +9634,7 @@ function Typography() {
                           defaultValue="96279*******"
                           placeholder="msisdn"
                           type="text"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -5825,6 +9647,7 @@ function Typography() {
                           defaultValue="1"
                           placeholder="ts11"
                           type="text"
+                          
                         />
                       </FormGroup>
                     </Col>
@@ -5832,7 +9655,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={TS11}>
                   Save
                 </Button>
               </CardFooter>
@@ -5854,6 +9678,7 @@ function Typography() {
                           defaultValue="96279*******"
                           placeholder="msisdn"
                           type="text"
+                          onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -5866,6 +9691,7 @@ function Typography() {
                           defaultValue="1"
                           placeholder="ts62"
                           type="text"
+                          onChange={(e) => setTs62(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -5878,6 +9704,7 @@ function Typography() {
                           defaultValue="1"
                           placeholder="bc"
                           type="text"
+                          onChange={(e) => setBc(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -5885,7 +9712,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={TemporaryGPRSDisconnect}>
                   Save
                 </Button>
               </CardFooter>
@@ -5909,6 +9737,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="imsi"
                           type="text"
+                          onChange={(e) => setImsi(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -5921,6 +9750,7 @@ function Typography() {
                           defaultValue="None"
                           placeholder="epsOdb"
                           type="text"
+                          onChange={(e) => setEpsOdb(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -5933,6 +9763,7 @@ function Typography() {
                           defaultValue="4"
                           placeholder="epsZoneCodeSetId"
                           type="text"
+                          onChange={(e) => setEpsZoneCodeSetId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -5940,7 +9771,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={SETLTEDATABarring}>
                   Save
                 </Button>
               </CardFooter>
@@ -5961,6 +9793,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="imsi"
                           type="text"
+                          onChange={(e) => setImsi(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -5973,6 +9806,7 @@ function Typography() {
                           defaultValue="testnewocs"
                           placeholder="epsProfileId"
                           type="text"
+                          onChange={(e) => setEpsProfileId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -5980,7 +9814,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={SETProfileID}>
                   Save
                 </Button>
               </CardFooter>
@@ -6001,6 +9836,7 @@ function Typography() {
                           defaultValue="962*********"
                           placeholder="associationId"
                           type="text"
+                          onChange={(e) => setAssociationId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6013,6 +9849,7 @@ function Typography() {
                           defaultValue="testnewocs"
                           placeholder="chargingProfId"
                           type="text"
+                          onChange={(e) => setChargingProfId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6020,7 +9857,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={BlockWIFIandpassIN}>
                   Save
                 </Button>
               </CardFooter>
@@ -6041,6 +9879,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="publicId"
                           type="text"
+                          onChange={(e) => setPublicId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6048,7 +9887,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={AddCFNRC}>
                   Save
                 </Button>
               </CardFooter>
@@ -6070,6 +9910,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="publicId"
                           type="text"
+                          onChange={(e) => setPublicId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6077,7 +9918,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={AddCFU}>
                   Save
                 </Button>
               </CardFooter>
@@ -6099,6 +9941,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="publicId"
                           type="text"
+                          onChange={(e) => setPublicId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6106,7 +9949,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={AddCLIPlus}>
                   Save
                 </Button>
               </CardFooter>
@@ -6126,6 +9970,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="publicId"
                           type="text"
+                          onChange={(e) => setPublicId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6133,7 +9978,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={AddRBT}>
                   Save
                 </Button>
               </CardFooter>
@@ -6154,6 +10000,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="publicId"
                           type="text"
+                          onChange={(e) => setPublicId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6161,7 +10008,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={Addincommingcommunicationbarring}>
                   Save
                 </Button>
               </CardFooter>
@@ -6181,6 +10029,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="publicId"
                           type="text"
+                          onChange={(e) => setPublicId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6188,7 +10037,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={AddoutgoingRoamingcommunicationbarring}>
                   Save
                 </Button>
               </CardFooter>
@@ -6209,6 +10059,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="publicId"
                           type="text"
+                          onChange={(e) => setPublicId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6216,7 +10067,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={Addoutgoingcommunicationbarring}>
                   Save
                 </Button>
               </CardFooter>
@@ -6236,6 +10088,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="publicId"
                           type="text"
+                          onChange={(e) => setPublicId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6243,7 +10096,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={Addoutgoinginterantionalcommunicationbarring}>
                   Save
                 </Button>
               </CardFooter>
@@ -6264,6 +10118,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="publicId"
                           type="text"
+                          onChange={(e) => setPublicId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6271,7 +10126,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={RemoveCFNRC}>
                   Save
                 </Button>
               </CardFooter>
@@ -6293,6 +10149,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="publicId"
                           type="text"
+                          onChange={(e) => setPublicId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6300,7 +10157,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={RemoveCFU}>
                   Save
                 </Button>
               </CardFooter>
@@ -6321,6 +10179,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="publicId"
                           type="text"
+                          onChange={(e) => setPublicId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6328,7 +10187,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={RemoveCLIPlus}>
                   Save
                 </Button>
               </CardFooter>
@@ -6350,6 +10210,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="publicId"
                           type="text"
+                          onChange={(e) => setPublicId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6357,7 +10218,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={RemoveCLIR}>
                   Save
                 </Button>
               </CardFooter>
@@ -6377,6 +10239,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="publicId"
                           type="text"
+                          onChange={(e) => setPublicId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6384,7 +10247,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={RemoveRBT}>
                   Save
                 </Button>
               </CardFooter>
@@ -6404,6 +10268,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="publicId"
                           type="text"
+                          onChange={(e) => setPublicId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6411,7 +10276,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={Removeincommingcommunicationbarring}>
                   Save
                 </Button>
               </CardFooter>
@@ -6434,6 +10300,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="publicId"
                           type="text"
+                          onChange={(e) => setPublicId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6441,7 +10308,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={RemoveoutgoingRoamingcommunicationbarring}>
                   Save
                 </Button>
               </CardFooter>
@@ -6461,6 +10329,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="publicId"
                           type="text"
+                          onChange={(e) => setPublicId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6468,7 +10337,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={Removeoutgoingcommunicationbarring}>
                   Save
                 </Button>
               </CardFooter>
@@ -6489,6 +10359,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="publicId"
                           type="text"
+                          onChange={(e) => setPublicId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6496,7 +10367,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={Removeoutgoinginterantionalcommunicationbarring}>
                   Save
                 </Button>
               </CardFooter>
@@ -6517,6 +10389,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="publicId"
                           type="text"
+                          onChange={(e) => setPublicId(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6524,7 +10397,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={originatingidentitypresentation}>
                   Save
                 </Button>
               </CardFooter>
@@ -6545,6 +10419,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="usrIdentifier"
                           type="text"
+                          onChange={(e) => setUsrIdentifier(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6557,6 +10432,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="srvpkgName"
                           type="text"
+                          onChange={(e) => setSrvpkgName(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6564,7 +10440,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={DOWNGRADEn}>
                   Save
                 </Button>
               </CardFooter>
@@ -6585,6 +10462,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="usrIdentifier"
                           type="text"
+                          onChange={(e) => setUsrIdentifier(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6597,6 +10475,7 @@ function Typography() {
                           defaultValue=""
                           placeholder="srvpkgName"
                           type="text"
+                          onChange={(e) => setSrvpkgName(e.target.value)}
                         />
                       </FormGroup>
                     </Col>
@@ -6604,7 +10483,8 @@ function Typography() {
                 </Form>
               </CardBody>
               <CardFooter>
-                <Button className="btn-fill" color="primary" type="submit">
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick={UPGRADE}>
                   Save
                 </Button>
               </CardFooter>
