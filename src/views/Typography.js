@@ -1564,6 +1564,8 @@ function Typography() {
     xmlhttp.setRequestHeader('Content-Type', 'text/xml');
     xmlhttp.send(sr);
   }
+  // HERE
+  
   function RemoveRingBackTone(){
    
     
@@ -3835,10 +3837,41 @@ function Typography() {
   }
 
 
+  
+window.addEventListener('load', function () {
+  const searchBar = document.getElementById('myInput');
+searchBar.addEventListener('keyup', (e) => {
+      const searchString = e.target.value.toLowerCase();
+      myFunction(searchString);
+  });
+});
+function myFunction() {
+  // console.log("Work");
+  // Declare variables
+  var input, filter, div, card, h5, i, txtValue;
+  input = document.getElementById('myInput');
+  filter = input.value.toUpperCase();
+  div = document.getElementById("cards");
+  card = div.getElementsByClassName('card');
+
+  for (i = 0; i < card.length; i++) {
+    h5 = card[i].getElementsByTagName("h5")[0];
+    txtValue = h5.textContent || h5.innerText;
+    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      card[i].style.display = "";
+    } else {
+      card[i].style.display = "none";
+    }
+  }
+}
+
+
 
   return (
     <>
-      <div className="content">
+      <div className="content" id="cards">
+      <input type="text" id="myInput" placeholder="Search.."/>
+        <br/><br/>
         <Row>
           <Col md="8">
             <Card>

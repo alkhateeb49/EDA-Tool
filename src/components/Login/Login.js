@@ -171,13 +171,15 @@ function Login() {
       // console.log(sessionId);
 
 
-      setTimeout(function(){
-        setSessionId("");
-        window.location.href = '/login';
-      },1200000);
+      // setTimeout(function(){
+      //   setSessionId("");
+      //   window.location.href = '/login';
+      // },5000);
+      // 1200000 
+
     }
 
-
+    
     
   return (
     <div className="content">
