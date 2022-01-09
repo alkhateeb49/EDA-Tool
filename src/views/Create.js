@@ -35,11 +35,20 @@ import {
 
 
 function Create() {
-  // setTimeout(function(){
-  //   // setSessionId("");
-  //   window.location.href = '/login';
-  // },3000);
-// 1200000
+  if(!sessionStorage.getItem('session')){
+    window.location.href = '/login';}
+
+  var today = new Date();
+  var time = today.getTime();
+  var later=sessionStorage.getItem('time')-time;
+
+
+  // alert(later);
+setTimeout(function(){
+  sessionStorage.clear();
+  alert("Time Out");
+  window.location.reload(false);
+},later);
 
 
   const [msisdn, setMsisdn] = useState(0);

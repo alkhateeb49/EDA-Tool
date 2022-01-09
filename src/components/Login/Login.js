@@ -38,6 +38,21 @@ function Login() {
     const [password, setPassword] = useState("");
     const [sessionId, setSessionId] = useState("");
 
+
+    
+    // var today = new Date();
+    // var time = today.getTime();
+    
+    var later = new Date();
+    later.setMinutes(later.getMinutes() + 20);
+    var time2 = later.getTime();
+
+
+
+    // alert(time);
+    // alert(time2);
+    // alert(time2-time);
+
     function sendLogin(){
       var form = document.getElementById("login_form");
       function handleForm(event) { event.preventDefault(); } 
@@ -86,6 +101,10 @@ function Login() {
                 if(txt==""){
                   alert("Wrong Username or Password");
                 }else{
+                  sessionStorage.setItem('username', username);
+                  sessionStorage.setItem('password', password);
+                  sessionStorage.setItem('session', txt);
+                  sessionStorage.setItem('time', time2);
                   window.location.href = '/';
                 }
 
@@ -101,10 +120,10 @@ function Login() {
       // console.log(sessionId);
 
 
-      setTimeout(function(){
-        setSessionId("");
-        window.location.href = '/login';
-      },1200000);
+      // setTimeout(function(){
+      //   sessionStorage.clear();
+      //   window.location.href = '/login';
+      // },1200000);
     }
 
 
@@ -156,6 +175,9 @@ function Login() {
                 if(txt==""){
                   alert("Wrong Username or Password");
                 }else{
+                  sessionStorage.setItem('name', username);
+                  sessionStorage.setItem('session', txt);
+                  sessionStorage.setItem('time', time);
                   window.location.href = '/';
                 }
 
@@ -180,7 +202,7 @@ function Login() {
     }
 
     
-    
+
   return (
     <div className="content">
   <Row>

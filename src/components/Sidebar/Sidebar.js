@@ -34,6 +34,12 @@ import {
 var ps;
 
 function Sidebar(props) {
+
+  function logout(){
+    sessionStorage.clear();
+    window.location.reload(false);
+  }
+
   const location = useLocation();
   const sidebarRef = React.useRef(null);
   // verifies if routeName is the one active (in browser input)
@@ -140,12 +146,13 @@ function Sidebar(props) {
                   </li>
                 );
               })}
-              <li className="active-pro">
+              {/* <li className="active-pro">
                 <ReactstrapNavLink href="https://www.creative-tim.com/product/black-dashboard-pro-react?ref=bdr-user-archive-sidebar-upgrade-pro">
                   <i className="tim-icons icon-spaceship" />
                   <p>Upgrade to PRO</p>
                 </ReactstrapNavLink>
-              </li>
+              </li> */}
+            <div className="logout"><a href="" onClick={logout}>Logout</a></div>
             </Nav>
           </div>
         </div>

@@ -547,4 +547,11 @@ Created using IcoMoon - icomoon.io
 .login-btn{
   width: 10.5%;
 }
+.logout{
+  margin-top: 65%;
+  margin-left: 12%;
+}
+.logout a{
+  color: white;
+}
 /*  */

@@ -31,7 +31,23 @@ import {
   Col,
 } from "reactstrap";
 
-function Typography() {
+function Set() {
+  if(!sessionStorage.getItem('session')){
+    window.location.href = '/login';}
+
+  var today = new Date();
+  var time = today.getTime();
+  var later=sessionStorage.getItem('time')-time;
+
+
+  // alert(later);
+  setTimeout(function(){
+    sessionStorage.clear();
+  alert("Time Out");
+  window.location.reload(false);
+},later);
+  
+  
   // const [ serviceClass,sessionId,errordetails,showSob,sob,status,ip,username,imsi,profileID] = useState(0);
   const [msisdn, setMsisdn] = useState(0);
   const [accumulatorID, setAccumulatorID] = useState(0);
@@ -10533,4 +10549,4 @@ function myFunction() {
   );
 }
 
-export default Typography;
+export default Set;
