@@ -80,8 +80,8 @@ function Delete() {
   "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
              "<wsse:UsernameToken>"+
-                 "<wsse:Username>mesaimi</wsse:Username>"+
-                 "<wsse:Password>Zain@1234</wsse:Password>"+
+                 "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                 "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
              "</wsse:UsernameToken>"+
          "</wsse:Security>"+
   "</soapenv:Header>"+
@@ -137,8 +137,8 @@ alert(sr);
   "<soapenv:Header>"+
   "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
   "<wsse:UsernameToken>"+
-      "<wsse:Username>mesaimi</wsse:Username>"+
-      "<wsse:Password>Zain@1234</wsse:Password>"+
+      "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+      "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
   "</wsse:UsernameToken>"+
 "</wsse:Security>"+
   "</soapenv:Header>"+
@@ -198,8 +198,8 @@ alert(sr);
   "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
              "<wsse:UsernameToken>"+
-                 "<wsse:Username>mesaimi</wsse:Username>"+
-                 "<wsse:Password>Zain@1234</wsse:Password>"+
+                 "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                 "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
              "</wsse:UsernameToken>"+
          "</wsse:Security>"+
   "</soapenv:Header>"+
@@ -266,8 +266,8 @@ alert(sr);
 "<soapenv:Header>"+
    "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
            "<wsse:UsernameToken>"+
-               "<wsse:Username>mesaimi</wsse:Username>"+
-               "<wsse:Password>Zain@1234</wsse:Password>"+
+               "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+               "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
            "</wsse:UsernameToken>"+
        "</wsse:Security>"+
 "</soapenv:Header>"+
@@ -330,8 +330,8 @@ function terminateAuc(){
 "<soapenv:Header>"+
    "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
            "<wsse:UsernameToken>"+
-               "<wsse:Username>mesaimi</wsse:Username>"+
-               "<wsse:Password>Zain@1234</wsse:Password>"+
+               "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+               "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
            "</wsse:UsernameToken>"+
        "</wsse:Security>"+
 "<soapenv:Body>"+
@@ -385,8 +385,8 @@ function deleteCssv(){
 "<soapenv:Header>"+
   "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
            "<wsse:UsernameToken>"+
-               "<wsse:Username>mesaimi</wsse:Username>"+
-               "<wsse:Password>Zain@1234</wsse:Password>"+
+               "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+               "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
            "</wsse:UsernameToken>"+
        "</wsse:Security>"+
 "</soapenv:Header>"+
@@ -453,8 +453,8 @@ function deleteEps(){
 "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
            "<wsse:UsernameToken>"+
-               "<wsse:Username>mesaimi</wsse:Username>"+
-               "<wsse:Password>Zain@1234</wsse:Password>"+
+               "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+               "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
            "</wsse:UsernameToken>"+
        "</wsse:Security>"+
  "</soapenv:Header>"+
@@ -508,8 +508,8 @@ function deleteHlr(){
  "<soapenv:Header>"+
     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
           "<wsse:UsernameToken>"+
-              "<wsse:Username>mesaimi</wsse:Username>"+
-              "<wsse:Password>Zain@1234</wsse:Password>"+
+              "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+              "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
           "</wsse:UsernameToken>"+
       "</wsse:Security>"+
  "</soapenv:Header>"+
@@ -569,8 +569,8 @@ function deleteApn(){
 "<soapenv:Header>"+
 "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
            "<wsse:UsernameToken>"+
-               "<wsse:Username>mesaimi</wsse:Username>"+
-               "<wsse:Password>Zain@1234</wsse:Password>"+
+               "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+               "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
            "</wsse:UsernameToken>"+
        "</wsse:Security>"+
 "</soapenv:Header>"+
@@ -630,8 +630,8 @@ function deleteDns(){
    "<soapenv:Header>"+
 "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
               "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
           "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -689,8 +689,8 @@ alert(sr);
   "<soapenv:Header>"+
 "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
              "<wsse:UsernameToken>"+
-                 "<wsse:Username>mesaimi</wsse:Username>"+
-                 "<wsse:Password>Zain@1234</wsse:Password>"+
+                 "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                 "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
              "</wsse:UsernameToken>"+
          "</wsse:Security>"+
   "</soapenv:Header>"+
@@ -748,8 +748,8 @@ function deleteMtas(){
    "<soapenv:Header>"+
       "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
               "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
           "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -802,8 +802,8 @@ alert(sr);
     "<soapenv:Header>"+
        "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
              "<wsse:UsernameToken>"+
-                 "<wsse:Username>mesaimi</wsse:Username>"+
-                 "<wsse:Password>Zain@1234</wsse:Password>"+
+                 "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                 "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
              "</wsse:UsernameToken>"+
          "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -865,8 +865,8 @@ alert(sr);
   "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
              "<wsse:UsernameToken>"+
-                 "<wsse:Username>mesaimi</wsse:Username>"+
-                 "<wsse:Password>Zain@1234</wsse:Password>"+
+                 "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                 "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
              "</wsse:UsernameToken>"+
          "</wsse:Security>"+
   "</soapenv:Header>"+
@@ -926,8 +926,8 @@ alert(sr);
  "<soapenv:Header>"+
     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
              "<wsse:UsernameToken>"+
-                 "<wsse:Username>mesaimi</wsse:Username>"+
-                 "<wsse:Password>Zain@1234</wsse:Password>"+
+                 "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                 "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
              "</wsse:UsernameToken>"+
          "</wsse:Security>"+
  "</soapenv:Header>"+
@@ -991,8 +991,8 @@ alert(sr);
 "<soapenv:Header>"+
   "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
            "<wsse:UsernameToken>"+
-               "<wsse:Username>mesaimi</wsse:Username>"+
-               "<wsse:Password>Zain@1234</wsse:Password>"+
+               "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+               "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
            "</wsse:UsernameToken>"+
        "</wsse:Security>"+
 "</soapenv:Header>"+

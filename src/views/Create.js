@@ -96,8 +96,8 @@ setTimeout(function(){
     "<soapenv:Header>"+
     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
               "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
           "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -116,8 +116,8 @@ setTimeout(function(){
         "</cai3:MOAttributes>"+
       "</cai3:Create>"+
     "</soapenv:Body>"+
-  "</soapenv:Envelope>";  
-     //alert(sr);
+  "</soapenv:Envelope>";
+    //  alert(sr);
     xmlhttp.onreadystatechange = function () {
       //alert('first');
         if (xmlhttp.readyState == 4) {
@@ -162,8 +162,8 @@ setTimeout(function(){
     "<soapenv:Header>"+
     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
               "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
           "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -258,8 +258,8 @@ setTimeout(function(){
     "<soapenv:Header>"+
        "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
                  "<wsse:UsernameToken>"+
-                     "<wsse:Username>mesaimi</wsse:Username>"+
-                     "<wsse:Password>Zain@1234</wsse:Password>"+
+                     "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                     "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
                  "</wsse:UsernameToken>"+
              "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -354,8 +354,8 @@ setTimeout(function(){
     "<soapenv:Header>"+
        "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
                  "<wsse:UsernameToken>"+
-                     "<wsse:Username>mesaimi</wsse:Username>"+
-                     "<wsse:Password>Zain@1234</wsse:Password>"+
+                     "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                     "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
                  "</wsse:UsernameToken>"+
              "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -441,8 +441,8 @@ setTimeout(function(){
 "<soapenv:Header>"+
    "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
 			 "<wsse:UsernameToken>"+
-				 "<wsse:Username>mesaimi</wsse:Username>"+
-				 "<wsse:Password>Zain@1234</wsse:Password>"+
+				 "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+				 "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
 			 "</wsse:UsernameToken>"+
 		 "</wsse:Security>"+
 "</soapenv:Header>"+
@@ -573,8 +573,8 @@ setTimeout(function(){
 "<soapenv:Header>"+
    "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
 			 "<wsse:UsernameToken>"+
-				 "<wsse:Username>mesaimi</wsse:Username>"+
-				 "<wsse:Password>Zain@1234</wsse:Password>"+
+				 "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+				 "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
 			 "</wsse:UsernameToken>"+
 		 "</wsse:Security>"+
 "</soapenv:Header>"+
@@ -641,8 +641,8 @@ setTimeout(function(){
   "<soapenv:Header>"+
 	"<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
   "</soapenv:Header>"+
@@ -730,8 +730,8 @@ setTimeout(function(){
   "<soapenv:Header>"+
 	"<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
   "</soapenv:Header>"+
@@ -812,8 +812,8 @@ setTimeout(function(){
   "<soapenv:Header>"+
 	"<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
   "</soapenv:Header>"+
@@ -919,8 +919,8 @@ setTimeout(function(){
     "<soapenv:Header>"+
     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
               "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
           "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -992,8 +992,8 @@ setTimeout(function(){
     "<soapenv:Header>"+
     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
               "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
           "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -1059,8 +1059,8 @@ setTimeout(function(){
     "<soapenv:Header>"+
     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
               "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
           "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -1126,8 +1126,8 @@ setTimeout(function(){
   "<soapenv:Header>"+
 	"<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
   "</soapenv:Header>"+
@@ -1208,8 +1208,8 @@ setTimeout(function(){
   "<soapenv:Header>"+
 	"<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
   "</soapenv:Header>"+
@@ -1289,8 +1289,8 @@ setTimeout(function(){
   "<soapenv:Header>"+
 	"<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
   "</soapenv:Header>"+
@@ -1355,8 +1355,8 @@ setTimeout(function(){
     "<soapenv:Header>"+
     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
               "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
           "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -1423,8 +1423,8 @@ setTimeout(function(){
   "<soapenv:Header>"+
 	"<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
   "</soapenv:Header>"+
@@ -1496,8 +1496,8 @@ setTimeout(function(){
     "<soapenv:Header>"+
     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
               "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
           "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -1577,8 +1577,8 @@ setTimeout(function(){
     "<soapenv:Header>"+
     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
               "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
           "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -1651,8 +1651,8 @@ setTimeout(function(){
   "<soapenv:Header>"+
 	"<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
   "</soapenv:Header>"+
@@ -1738,8 +1738,8 @@ setTimeout(function(){
   "<soapenv:Header>"+
 	"<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
   "</soapenv:Header>"+"<soapenv:Body>"+
@@ -1810,8 +1810,8 @@ setTimeout(function(){
     "<soapenv:Header>"+
     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
               "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
           "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -1883,8 +1883,8 @@ setTimeout(function(){
   "<soapenv:Header>"+
 	"<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
   "</soapenv:Header>"+
@@ -1956,8 +1956,8 @@ setTimeout(function(){
     "<soapenv:Header>"+
     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
               "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
           "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -2037,8 +2037,8 @@ setTimeout(function(){
     "<soapenv:Header>"+
     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
               "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
           "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -2143,8 +2143,8 @@ setTimeout(function(){
   "<soapenv:Header>"+
 	"<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
   "</soapenv:Header>"+
@@ -2209,8 +2209,8 @@ setTimeout(function(){
     "<soapenv:Header>"+
     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
               "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
           "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -2283,8 +2283,8 @@ setTimeout(function(){
   "<soapenv:Header>"+
 	"<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
   "</soapenv:Header>"+
@@ -2350,8 +2350,8 @@ setTimeout(function(){
     "<soapenv:Header>"+
     "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
               "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
           "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -2417,8 +2417,8 @@ setTimeout(function(){
   "<soapenv:Header>"+
 	"<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
   "</soapenv:Header>"+
@@ -2481,8 +2481,8 @@ setTimeout(function(){
   "<soapenv:Header>"+
 	"<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
   "</soapenv:Header>"+
@@ -2550,8 +2550,8 @@ setTimeout(function(){
   "<soapenv:Header>"+
 	"<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
   "</soapenv:Header>"+

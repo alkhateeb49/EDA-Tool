@@ -34,6 +34,11 @@ import {
 import { Container, Nav, NavItem, NavLink } from "reactstrap";
 
 function Login() {
+  if(sessionStorage.getItem('session')){
+    window.location.href = '/';}
+
+
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [sessionId, setSessionId] = useState("");
@@ -175,9 +180,10 @@ function Login() {
                 if(txt==""){
                   alert("Wrong Username or Password");
                 }else{
-                  sessionStorage.setItem('name', username);
+                  sessionStorage.setItem('username', username);
+                  sessionStorage.setItem('password', password);
                   sessionStorage.setItem('session', txt);
-                  sessionStorage.setItem('time', time);
+                  sessionStorage.setItem('time', time2);
                   window.location.href = '/';
                 }
 
