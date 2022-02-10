@@ -49,8 +49,8 @@ function Login() {
     // var time = today.getTime();
     
     var later = new Date();
-    later.setMinutes(later.getMinutes() + 20);
-    var time2 = later.getTime();
+    later.setMinutes(later.getMinutes() + 1);
+    var time = later.getTime();
 
 
 
@@ -70,8 +70,9 @@ function Login() {
     
       var xmlhttp = new XMLHttpRequest();
        xmlhttp.open('Post', "http://10.50.0.11:8080/CAI3G1.2/services/CAI3G1.2", true);
+       
       // xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true); //Test
-      
+
 
       // build SOAP request
       var sr =
@@ -109,7 +110,8 @@ function Login() {
                   sessionStorage.setItem('username', username);
                   sessionStorage.setItem('password', password);
                   sessionStorage.setItem('session', txt);
-                  sessionStorage.setItem('time', time2);
+                  sessionStorage.setItem('time', time);
+                  sessionStorage.setItem('flag', 1);
                   window.location.href = '/';
                 }
 
@@ -119,6 +121,7 @@ function Login() {
       }
       // Send the POST request
       xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+
       // xmlhttp.setRequestHeader('Access-Control-Allow-Origin','http://127.0.0.1:3000/');
 
       xmlhttp.send(sr);
@@ -183,7 +186,8 @@ function Login() {
                   sessionStorage.setItem('username', username);
                   sessionStorage.setItem('password', password);
                   sessionStorage.setItem('session', txt);
-                  sessionStorage.setItem('time', time2);
+                  sessionStorage.setItem('time', time);
+                  sessionStorage.setItem('flag', 1);
                   window.location.href = '/';
                 }
 

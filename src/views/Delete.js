@@ -38,17 +38,12 @@ function Delete() {
   if(!sessionStorage.getItem('session')){
     window.location.href = '/login';}
 
-  var today = new Date();
-  var time = today.getTime();
-  var later=sessionStorage.getItem('time')-time;
-
-
-  // alert(later);
-  setTimeout(function(){
-    sessionStorage.clear();
-  alert("Time Out");
-  window.location.reload(false);
-},later);
+    if (performance.navigation.type == performance.navigation.TYPE_RELOAD){
+      console.log( "This page is reloaded" );
+      alert("Time Out");
+      sessionStorage.clear();
+      window.location.href = '/'
+    }
 
 
 
@@ -1099,7 +1094,7 @@ alert(sr);
 
 
 
-window.addEventListener('load', function () {
+window.addEventListener('click', function () {
   const searchBar = document.getElementById('myInput');
 searchBar.addEventListener('keyup', (e) => {
       const searchString = e.target.value.toLowerCase();
