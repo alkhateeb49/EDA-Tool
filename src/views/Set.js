@@ -35,14 +35,14 @@ function Set() {
   if(!sessionStorage.getItem('session')){
     window.location.href = '/login';}
 
-    if (performance.navigation.type == performance.navigation.TYPE_RELOAD){
-      console.log( "This page is reloaded");
-      alert("Time Out");
-      sessionStorage.clear();
-      window.location.href = '/'
-    }
-
-  
+  var today = new Date();
+  var time = today.getTime();
+  var later=sessionStorage.getItem('time')-time;
+    setTimeout(function(){
+    // alert("Time Out");
+    sessionStorage.clear();
+    window.location.href = '/'
+  },later);
   
   // const [ serviceClass,sessionId,errordetails,showSob,sob,status,ip,username,imsi,profileID] = useState(0);
   const [msisdn, setMsisdn] = useState(0);
@@ -117,6 +117,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -188,6 +212,30 @@ function Set() {
          if (xmlhttp.readyState == 4) {
            //alert('secound');
              if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
               // alert(" working");
                //alert(sr.response);
                //To Get error
@@ -256,6 +304,30 @@ function Set() {
          if (xmlhttp.readyState == 4) {
            //alert('secound');
              if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
               // alert(" working");
                //alert(sr.response);
                //To Get error
@@ -324,6 +396,30 @@ function Set() {
          if (xmlhttp.readyState == 4) {
            //alert('secound');
              if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
               // alert(" working");
                //alert(sr.response);
                //To Get error
@@ -392,6 +488,30 @@ function Set() {
          if (xmlhttp.readyState == 4) {
            //alert('secound');
              if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
               // alert(" working");
                //alert(sr.response);
                //To Get error
@@ -462,6 +582,30 @@ function Set() {
          if (xmlhttp.readyState == 4) {
            //alert('secound');
              if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
               // alert(" working");
                //alert(sr.response);
                //To Get error
@@ -535,6 +679,30 @@ function Set() {
          if (xmlhttp.readyState == 4) {
            //alert('secound');
              if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
               // alert(" working");
                //alert(sr.response);
                //To Get error
@@ -608,6 +776,30 @@ function Set() {
          if (xmlhttp.readyState == 4) {
            //alert('secound');
              if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
               // alert(" working");
                //alert(sr.response);
                //To Get error
@@ -679,6 +871,30 @@ function Set() {
          if (xmlhttp.readyState == 4) {
            //alert('secound');
              if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
               // alert(" working");
                //alert(sr.response);
                //To Get error
@@ -750,6 +966,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -817,6 +1057,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -884,6 +1148,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -951,6 +1239,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -998,10 +1310,10 @@ function Set() {
             "<cai3:MOType>Offer@http://schemas.ericsson.com/ma/CS/AIR/</cai3:MOType>"+
             "<cai3:MOId>"+
                 "<air:subscriberNumber>962"+msisdn+"</air:subscriberNumber>"+
-                "<air:offerID>7001</air:offerID>"+
+                "<air:offerID>"+providerID+"</air:offerID>"+
             "</cai3:MOId>"+
             "<cai3:MOAttributes>"+
-                "<air:setOffer subscriberNumber='962"+msisdn+"' offerID='7001'>"+
+                "<air:setOffer subscriberNumber='962"+msisdn+"' offerID='"+providerID+"'>"+
                     "<air:subscriberNumberNAI>1</air:subscriberNumberNAI>"+
                     "<air:originOperatorID>1</air:originOperatorID>"+
                      "<air:offerRequestInformation>"+
@@ -1013,12 +1325,37 @@ function Set() {
         "</cai3:Set>"+
     "</soapenv:Body>"+
 "</soapenv:Envelope>";
-     //alert(sr);
+
+    //  alert(sr);
     xmlhttp.onreadystatechange = function () {
       //alert('first');
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -1088,6 +1425,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -1157,6 +1518,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -1226,6 +1611,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -1299,6 +1708,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -1364,6 +1797,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -1427,6 +1884,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -1489,6 +1970,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -1551,6 +2056,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -1615,6 +2144,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -1683,6 +2236,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -1747,6 +2324,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -1812,6 +2413,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -1875,6 +2500,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -1939,6 +2588,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -1979,6 +2652,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -2019,6 +2716,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -2059,6 +2780,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -2124,6 +2869,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -2187,6 +2956,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -2249,6 +3042,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -2318,6 +3135,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -2401,6 +3242,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -2483,6 +3348,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -2565,6 +3454,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -2634,6 +3547,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -2709,6 +3646,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -2785,6 +3746,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -2860,6 +3845,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -2936,6 +3945,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -3019,6 +4052,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -3101,6 +4158,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -3178,6 +4259,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -3252,6 +4357,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -3320,6 +4449,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -3395,6 +4548,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -3471,6 +4648,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -3546,6 +4747,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -3622,6 +4847,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -3692,6 +4941,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -3757,6 +5030,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error
@@ -3822,6 +5119,30 @@ function Set() {
         if (xmlhttp.readyState == 4) {
           //alert('secound');
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
              // alert(" working");
               //alert(sr.response);
               //To Get error

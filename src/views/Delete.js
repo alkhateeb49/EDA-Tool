@@ -38,13 +38,21 @@ function Delete() {
   if(!sessionStorage.getItem('session')){
     window.location.href = '/login';}
 
-    if (performance.navigation.type == performance.navigation.TYPE_RELOAD){
-      console.log( "This page is reloaded" );
-      alert("Time Out");
+    // if (performance.navigation.type == performance.navigation.TYPE_RELOAD){
+    //   console.log( "This page is reloaded" );
+    //   alert("Time Out");
+    //   sessionStorage.clear();
+    //   window.location.href = '/'
+    // }
+
+    var today = new Date();
+    var time = today.getTime();
+    var later=sessionStorage.getItem('time')-time;
+      setTimeout(function(){
+      // alert("Time Out");
       sessionStorage.clear();
       window.location.href = '/'
-    }
-
+    },later);
 
 
 
@@ -89,10 +97,34 @@ function Delete() {
      "</cai3:Delete>"+
   "</soapenv:Body>"+
 "</soapenv:Envelope>";
-alert(sr);
+// 
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4) {
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+              if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
               //To Get error
               var x, i, xmlDoc, txt;
               // xmlDoc = sr.responseXML;
@@ -152,10 +184,34 @@ alert(sr);
      "</cai3:Delete>"+
   "</soapenv:Body>"+
 "</soapenv:Envelope>";
-alert(sr);
+// 
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4) {
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+              if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
               //To Get error
               var x, i, xmlDoc, txt;
               // xmlDoc = sr.responseXML;
@@ -217,25 +273,35 @@ alert(sr);
      "</cai3:Delete>"+
   "</soapenv:Body>"+
 "</soapenv:Envelope>";
-alert(sr);
+
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4) {
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
-              //To Get error
-              var x, i, xmlDoc, txt;
-              // xmlDoc = sr.responseXML;
-              // console.log(xmlDoc);
-              // txt = "";
-              // x = xmlDoc.getElementsByTagName("sessionId");
-              // for (i = 0; i < x.length; i++) {
-              //   txt += x[i].childNodes[0].nodeValue;
-              // }
-       
-              // this.setState({ sessionId: txt });
-              //console.log(this.state.sessionId);
-              txt = "";
-              console.log("txt = ", txt);
-      
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+              if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
+
                 
             }
         }
@@ -282,10 +348,34 @@ alert(sr);
    "</cai3:Set>"+
 "</soapenv:Body>"+
 "</soapenv:Envelope>";
-alert(sr);
+
   xmlhttp.onreadystatechange = function () {
       if (xmlhttp.readyState == 4) {
           if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+              if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
             //To Get error
             var x, i, xmlDoc, txt;
             // xmlDoc = sr.responseXML;
@@ -338,10 +428,34 @@ function terminateAuc(){
    "</cai3:Delete>"+
 "</soapenv:Body>"+
 "</soapenv:Envelope>";
-alert(sr);
+
   xmlhttp.onreadystatechange = function () {
       if (xmlhttp.readyState == 4) {
           if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+              if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
             //To Get error
             var x, i, xmlDoc, txt;
             // xmlDoc = sr.responseXML;
@@ -406,10 +520,34 @@ function deleteCssv(){
    "</cai3:Set>"+
 "</soapenv:Body>"+
 "</soapenv:Envelope>";
-alert(sr);
+
   xmlhttp.onreadystatechange = function () {
       if (xmlhttp.readyState == 4) {
           if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+              if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
             //To Get error
             var x, i, xmlDoc, txt;
             // xmlDoc = sr.responseXML;
@@ -462,10 +600,34 @@ function deleteEps(){
     "</cai3:Delete>"+
  "</soapenv:Body>"+
 "</soapenv:Envelope> ";
-alert(sr);
+
   xmlhttp.onreadystatechange = function () {
       if (xmlhttp.readyState == 4) {
           if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+              if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
             //To Get error
             var x, i, xmlDoc, txt;
             // xmlDoc = sr.responseXML;
@@ -523,10 +685,34 @@ function deleteHlr(){
     "</cai3:Delete>"+
  "</soapenv:Body>"+
 "</soapenv:Envelope>";
-alert(sr);
+
   xmlhttp.onreadystatechange = function () {
       if (xmlhttp.readyState == 4) {
           if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+              if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
             //To Get error
             var x, i, xmlDoc, txt;
             // xmlDoc = sr.responseXML;
@@ -585,10 +771,34 @@ function deleteApn(){
 "</soapenv:Body>"+
 "</soapenv:Envelope>";
 
-alert(sr);
+
   xmlhttp.onreadystatechange = function () {
       if (xmlhttp.readyState == 4) {
           if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+              if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
             //To Get error
             var x, i, xmlDoc, txt;
             // xmlDoc = sr.responseXML;
@@ -644,10 +854,34 @@ function deleteDns(){
       "</cai3:Delete>"+
    "</soapenv:Body>"+
 "</soapenv:Envelope>";
-alert(sr);
+
      xmlhttp.onreadystatechange = function () {
          if (xmlhttp.readyState == 4) {
              if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+              if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
                //To Get error
                var x, i, xmlDoc, txt;
                // xmlDoc = sr.responseXML;
@@ -702,10 +936,34 @@ alert(sr);
      "</cai3:Delete>"+
   "</soapenv:Body>"+
 "</soapenv:Envelope>";
-alert(sr);
+
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4) {
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+              if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
               //To Get error
               var x, i, xmlDoc, txt;
               // xmlDoc = sr.responseXML;
@@ -757,10 +1015,34 @@ function deleteMtas(){
       "</cai3:Delete>"+
    "</soapenv:Body>"+
 "</soapenv:Envelope>";
-alert(sr);
+
      xmlhttp.onreadystatechange = function () {
          if (xmlhttp.readyState == 4) {
              if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+              if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
                //To Get error
                var x, i, xmlDoc, txt;
                // xmlDoc = sr.responseXML;
@@ -817,10 +1099,34 @@ alert(sr);
        "</cai3:Delete>"+
     "</soapenv:Body>"+
  "</soapenv:Envelope>";
-alert(sr);
+
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4) {
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+              if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
               //To Get error
               var x, i, xmlDoc, txt;
               // xmlDoc = sr.responseXML;
@@ -880,10 +1186,34 @@ alert(sr);
      "</cai3:Delete>"+
   "</soapenv:Body>"+
 "</soapenv:Envelope>";
-alert(sr);
+
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4) {
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+              if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
               //To Get error
               var x, i, xmlDoc, txt;
               // xmlDoc = sr.responseXML;
@@ -943,10 +1273,34 @@ alert(sr);
  "</soapenv:Body>"+
 "</soapenv:Envelope>";
 
-alert(sr);
+
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState == 4) {
             if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+              if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
               //To Get error
               var x, i, xmlDoc, txt;
               // xmlDoc = sr.responseXML;
@@ -1008,10 +1362,34 @@ alert(sr);
    "</cai3:Set>"+
 "</soapenv:Body>"+
 "</soapenv:Envelope>";
-alert(sr);
+
   xmlhttp.onreadystatechange = function () {
       if (xmlhttp.readyState == 4) {
           if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+              if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
             //To Get error
             var x, i, xmlDoc, txt;
             // xmlDoc = sr.responseXML;
@@ -1062,10 +1440,34 @@ function deleteHss(){
     "</cai3:Delete>"+
  "</soapenv:Body>"+
 "</soapenv:Envelope>";
-alert(sr);
+
   xmlhttp.onreadystatechange = function () {
       if (xmlhttp.readyState == 4) {
           if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+              if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
             //To Get error
             var x, i, xmlDoc, txt;
             // xmlDoc = sr.responseXML;

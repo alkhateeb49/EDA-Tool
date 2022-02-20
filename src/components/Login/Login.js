@@ -49,7 +49,8 @@ function Login() {
     // var time = today.getTime();
     
     var later = new Date();
-    later.setMinutes(later.getMinutes() + 1);
+    // later.setMinutes(later.getMinutes() + 20);
+    later.setSeconds(later.getSeconds() + 7);
     var time = later.getTime();
 
 
@@ -94,10 +95,11 @@ function Login() {
                 // alert(" working");
                 //alert(sr.response);
                 //To Get error
+
                 var x, i, xmlDoc, txt;
                 txt = "";
-
                 xmlDoc=xmlhttp.responseXML;
+
                 x = xmlDoc.getElementsByTagName('sessionId');
                 for (i = 0; i < x.length; i++) {
                   txt += x[i].childNodes[0].nodeValue;
@@ -111,7 +113,7 @@ function Login() {
                   sessionStorage.setItem('password', password);
                   sessionStorage.setItem('session', txt);
                   sessionStorage.setItem('time', time);
-                  sessionStorage.setItem('flag', 1);
+                  // sessionStorage.setItem('flag', 1);
                   window.location.href = '/';
                 }
 
@@ -187,7 +189,7 @@ function Login() {
                   sessionStorage.setItem('password', password);
                   sessionStorage.setItem('session', txt);
                   sessionStorage.setItem('time', time);
-                  sessionStorage.setItem('flag', 1);
+                  // sessionStorage.setItem('flag', 1);
                   window.location.href = '/';
                 }
 
