@@ -49,8 +49,8 @@ function Login() {
     // var time = today.getTime();
     
     var later = new Date();
-    // later.setMinutes(later.getMinutes() + 20);
-    later.setSeconds(later.getSeconds() + 7);
+    later.setMinutes(later.getMinutes() + 20);
+    // later.setSeconds(later.getSeconds() + 7);
     var time = later.getTime();
 
 
@@ -113,6 +113,7 @@ function Login() {
                   sessionStorage.setItem('password', password);
                   sessionStorage.setItem('session', txt);
                   sessionStorage.setItem('time', time);
+                  sessionStorage.setItem('serv', "10.50.0.11");
                   // sessionStorage.setItem('flag', 1);
                   window.location.href = '/';
                 }
@@ -189,6 +190,7 @@ function Login() {
                   sessionStorage.setItem('password', password);
                   sessionStorage.setItem('session', txt);
                   sessionStorage.setItem('time', time);
+                  sessionStorage.setItem('serv', "10.50.0.17");
                   // sessionStorage.setItem('flag', 1);
                   window.location.href = '/';
                 }

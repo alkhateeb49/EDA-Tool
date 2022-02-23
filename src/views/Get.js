@@ -60,7 +60,7 @@ function Get() {
      //alert('start');
  
      var xmlhttp = new XMLHttpRequest();
-     xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+     xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
      
      // build SOAP request
      var sr =
@@ -152,7 +152,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
   //alert('start');
 
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+  xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
   
   // build SOAP request
   var sr =
@@ -252,7 +252,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -344,7 +344,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -422,7 +422,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request"<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:css='http://schemas.ericsson.com/ma/CA/CSSVSUB/'>"+
   
@@ -502,7 +502,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -582,7 +582,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -668,7 +668,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -754,7 +754,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -839,7 +839,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
   
@@ -926,7 +926,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
   
@@ -1007,7 +1007,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
   
@@ -1087,7 +1087,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
   
@@ -1166,7 +1166,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
   
@@ -1252,7 +1252,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
   

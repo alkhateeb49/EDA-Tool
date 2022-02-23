@@ -74,7 +74,7 @@ function Delete() {
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
   
@@ -155,7 +155,7 @@ function Delete() {
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
   
@@ -241,7 +241,7 @@ function Delete() {
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -319,7 +319,7 @@ function Delete() {
   //alert('start');
 
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+  xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
   
   // build SOAP request
  var sr =
@@ -407,7 +407,7 @@ function terminateAuc(){
   //alert('start');
 
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+  xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
   
   // build SOAP request
  var sr =
@@ -486,7 +486,7 @@ function deleteCssv(){
   //alert('start');
 
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+  xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
   
   // build SOAP request
  var sr =
@@ -578,7 +578,7 @@ function deleteEps(){
   //alert('start');
 
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+  xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
   
   // build SOAP request
  var sr =
@@ -657,7 +657,7 @@ function deleteHlr(){
   //alert('start');
 
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+  xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
   
   // build SOAP request
  var sr =
@@ -742,7 +742,7 @@ function deleteApn(){
   //alert('start');
 
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+  xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
   
   // build SOAP request
  var sr =
@@ -827,7 +827,7 @@ function deleteDns(){
      //alert('start');
  
      var xmlhttp = new XMLHttpRequest();
-     xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+     xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
      
      // build SOAP request
 	  var sr =
@@ -910,7 +910,7 @@ function deleteDns(){
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
    var sr =
@@ -993,7 +993,7 @@ function deleteMtas(){
      //alert('start');
  
      var xmlhttp = new XMLHttpRequest();
-     xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+     xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
      
      // build SOAP request
 	  var sr =
@@ -1071,7 +1071,7 @@ function deleteMtas(){
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
    var sr =
@@ -1158,7 +1158,7 @@ function deleteMtas(){
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
    var sr =
@@ -1243,7 +1243,7 @@ function deleteMtas(){
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
    var sr =
@@ -1332,7 +1332,7 @@ function deleteMtas(){
   //alert('start');
 
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+  xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
   
   // build SOAP request
  var sr =
@@ -1421,7 +1421,7 @@ function deleteHss(){
   //alert('start');
 
   var xmlhttp = new XMLHttpRequest();
-  xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+  xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
   
   // build SOAP request
  var sr =

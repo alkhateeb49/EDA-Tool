@@ -80,7 +80,7 @@ function Set() {
     //alert('start');
 
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -88,8 +88,8 @@ function Set() {
         "<soapenv:Header>"+
            "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
         "</soapenv:Header>"+
@@ -172,7 +172,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
      //alert('start');
  
      var xmlhttp = new XMLHttpRequest();
-     xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+     xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
      
      // build SOAP request
      var sr =
@@ -180,8 +180,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
      "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
      "</soapenv:Header>"+
@@ -267,15 +267,15 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
      //alert('start');
  
      var xmlhttp = new XMLHttpRequest();
-     xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+     xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
      
      // build SOAP request
      var sr =
      "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:air='http://schemas.ericsson.com/ma/CS/AIR/' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance'>"+
      "<soapenv:Header>"+
         "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
      "</soapenv:Header>"+
      "<soapenv:Body>"+
@@ -359,7 +359,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
      //alert('start');
  
      var xmlhttp = new XMLHttpRequest();
-     xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+     xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
      
      // build SOAP request
      var sr =
@@ -367,8 +367,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
      "<soapenv:Header>"+
           "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
               "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
           "</wsse:Security>"+
      "</soapenv:Header>"+
@@ -451,7 +451,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
      //alert('start');
  
      var xmlhttp = new XMLHttpRequest();
-     xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+     xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
      
      // build SOAP request
      var sr =
@@ -459,8 +459,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
      "<soapenv:Header>"+
           "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
               "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
           "</wsse:Security>"+
      "</soapenv:Header>"+
@@ -543,7 +543,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
      //alert('start');
  
      var xmlhttp = new XMLHttpRequest();
-     xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+     xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
      
      // build SOAP request
      var sr =
@@ -551,8 +551,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
         "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -637,7 +637,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
      //alert('start');
  
      var xmlhttp = new XMLHttpRequest();
-     xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+     xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
      
      // build SOAP request
      var sr =
@@ -645,8 +645,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
      "<soapenv:Header>"+
          "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
               "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
           "</wsse:Security>"+
      "</soapenv:Header>"+
@@ -734,7 +734,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
      //alert('start');
  
      var xmlhttp = new XMLHttpRequest();
-     xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+     xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
      
      // build SOAP request
      var sr =
@@ -742,8 +742,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
      "<soapenv:Header>"+
          "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
               "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
           "</wsse:Security>"+
      "</soapenv:Header>"+
@@ -829,7 +829,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
      var xmlhttp = new XMLHttpRequest();
-     xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+     xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
      
      // build SOAP request
      var sr =
@@ -837,8 +837,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
      "<soapenv:Header>"+
          "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
               "<wsse:UsernameToken>"+
-                  "<wsse:Username>mesaimi</wsse:Username>"+
-                  "<wsse:Password>Zain@1234</wsse:Password>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
               "</wsse:UsernameToken>"+
           "</wsse:Security>"+
      "</soapenv:Header>"+
@@ -924,7 +924,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -932,8 +932,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
     "<soapenv:Header>"+
         "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
              "<wsse:UsernameToken>"+
-                 "<wsse:Username>mesaimi</wsse:Username>"+
-                 "<wsse:Password>Zain@1234</wsse:Password>"+
+                 "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                 "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
              "</wsse:UsernameToken>"+
          "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -1019,7 +1019,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -1027,8 +1027,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
     "<soapenv:Header>"+
        "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
              "<wsse:UsernameToken>"+
-                 "<wsse:Username>mesaimi</wsse:Username>"+
-                 "<wsse:Password>Zain@1234</wsse:Password>"+
+                 "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                 "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
              "</wsse:UsernameToken>"+
          "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -1110,7 +1110,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -1118,8 +1118,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
     "<soapenv:Header>"+
        "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
              "<wsse:UsernameToken>"+
-                 "<wsse:Username>mesaimi</wsse:Username>"+
-                 "<wsse:Password>Zain@1234</wsse:Password>"+
+                 "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                 "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
              "</wsse:UsernameToken>"+
          "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -1201,7 +1201,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -1209,8 +1209,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
     "<soapenv:Header>"+
        "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
              "<wsse:UsernameToken>"+
-                 "<wsse:Username>mesaimi</wsse:Username>"+
-                 "<wsse:Password>Zain@1234</wsse:Password>"+
+                 "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                 "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
              "</wsse:UsernameToken>"+
          "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -1292,7 +1292,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -1300,8 +1300,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
     "<soapenv:Header>"+
         "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -1385,7 +1385,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -1393,8 +1393,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
       "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -1478,7 +1478,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -1486,8 +1486,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
       "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -1571,7 +1571,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -1579,8 +1579,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
        "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -1664,7 +1664,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -1672,8 +1672,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
        "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -1761,7 +1761,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -1769,8 +1769,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
     "<soapenv:Header>"+
         "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
              "<wsse:UsernameToken>"+
-                 "<wsse:Username>mesaimi</wsse:Username>"+
-                 "<wsse:Password>Zain@1234</wsse:Password>"+
+                 "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                 "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
              "</wsse:UsernameToken>"+
          "</wsse:Security>"+
     "</soapenv:Header>"+
@@ -1850,7 +1850,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -1858,8 +1858,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
       "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -1937,7 +1937,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -1945,8 +1945,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -2023,7 +2023,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -2031,8 +2031,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -2111,7 +2111,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -2119,8 +2119,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -2197,7 +2197,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -2205,8 +2205,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -2289,7 +2289,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -2297,8 +2297,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -2377,7 +2377,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -2385,8 +2385,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -2466,7 +2466,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -2474,8 +2474,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -2553,7 +2553,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -2561,8 +2561,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -2641,7 +2641,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -2705,7 +2705,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -2769,7 +2769,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -2833,7 +2833,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -2841,8 +2841,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -2922,7 +2922,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -2930,8 +2930,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -3009,7 +3009,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -3017,8 +3017,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -3095,7 +3095,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -3103,8 +3103,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -3188,7 +3188,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -3196,8 +3196,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -3295,7 +3295,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -3303,8 +3303,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -3401,7 +3401,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -3409,8 +3409,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -3507,7 +3507,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -3515,8 +3515,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -3600,7 +3600,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -3608,8 +3608,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -3699,7 +3699,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -3707,8 +3707,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -3799,7 +3799,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -3807,8 +3807,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -3898,7 +3898,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -3906,8 +3906,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -3998,7 +3998,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -4006,8 +4006,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -4105,7 +4105,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -4113,8 +4113,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -4211,7 +4211,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -4312,7 +4312,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -4320,8 +4320,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -4410,7 +4410,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -4418,8 +4418,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -4502,7 +4502,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -4510,8 +4510,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -4601,7 +4601,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -4609,8 +4609,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -4701,7 +4701,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -4709,8 +4709,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -4800,7 +4800,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -4808,8 +4808,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -4900,7 +4900,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -4908,8 +4908,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -4994,7 +4994,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -5002,8 +5002,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
@@ -5083,7 +5083,7 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    
     
     var xmlhttp = new XMLHttpRequest();
-    xmlhttp.open('Post', "http://10.50.0.17:8080/CAI3G1.2/services/CAI3G1.2", true);
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
     
     // build SOAP request
     var sr =
@@ -5091,8 +5091,8 @@ if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
    "<soapenv:Header>"+
      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
             "<wsse:UsernameToken>"+
-                "<wsse:Username>mesaimi</wsse:Username>"+
-                "<wsse:Password>Zain@1234</wsse:Password>"+
+                "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
             "</wsse:UsernameToken>"+
         "</wsse:Security>"+
    "</soapenv:Header>"+
