@@ -84,7 +84,7 @@ function LoginPage(props) {
           return routes[i].name;
         }
       }
-      return "Brand";
+      return "EDA Tool";
     };
     return (
       <BackgroundColorContext.Consumer>

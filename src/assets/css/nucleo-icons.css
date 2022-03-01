@@ -554,4 +554,11 @@ Created using IcoMoon - icomoon.io
 .logout a{
   color: white;
 }
-/*  */
+/* new */
+
+#myInput{
+width: 65%;
+border-style: outset;
+border-width: 3px;
+border-color: #dcdcdc;
+}

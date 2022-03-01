@@ -117,7 +117,7 @@ function RTL(props) {
         return routes[i].name;
       }
     }
-    return "Brand";
+    return "EDA Tool";
   };
   return (
     <>
@@ -129,7 +129,7 @@ function RTL(props) {
                 routes={routes}
                 rtlActive
                 logo={{
-                  outterLink: "https://www.creative-tim.com/",
+                  outterLink: "/",
                   text: "الإبداعية تيم",
                   imgSrc: logo,
                 }}
