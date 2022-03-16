@@ -69,6 +69,94 @@ function Delete() {
   const [srvpkgName ,  setSrvpkgName] = useState(0);
 
 
+  function deleteSdp(){
+  
+    //alert('start');
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+  
+   var sr =
+   "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:air='http://schemas.ericsson.com/ma/CS/AIR/'>"+
+   "<soapenv:Header>"+
+      "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+              "<wsse:UsernameToken>"+
+                  "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+                  "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
+              "</wsse:UsernameToken>"+
+          "</wsse:Security>"+
+   "</soapenv:Header>"+
+    "<soapenv:Body>"+
+       "<cai3:Delete>"+
+          "<cai3:MOType>Subscription@http://schemas.ericsson.com/ma/CS/AIR/</cai3:MOType>"+
+          "<cai3:MOId>"+
+             "<air:subscriberNumber>962"+msisdn+"</air:subscriberNumber>"+
+          "</cai3:MOId>"+
+          "<cai3:MOAttributes>"+
+             "<air:deleteSubscription subscriberNumber='962"+msisdn+"'>"+
+                "<air:subscriberNumberNAI>1</air:subscriberNumberNAI>"+
+                "<air:originOperatorID>operator</air:originOperatorID>"+
+                "<air:deleteReasonCode>1</air:deleteReasonCode>"+
+                "<air:barring>0</air:barring>"+
+                "<air:negotiatedCapabilities>0</air:negotiatedCapabilities>"+
+             "</air:deleteSubscription>"+
+          "</cai3:MOAttributes>"+
+       "</cai3:Delete>"+
+    "</soapenv:Body>"+
+ "</soapenv:Envelope>";
+ 
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState == 4) {
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+              if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
   function deleteAf(){
   
     //alert('start');
@@ -1532,6 +1620,37 @@ function myFunction() {
         <br/><br/>
         <Row>
           <Col md="8">
+          <Card>
+              <CardHeader>
+                <h5 className="title">Delete SDP</h5>
+              </CardHeader>
+              <CardBody>
+                <Form>
+                  <Row>
+                    <Col className="pr-md-1" md="5">
+                      <FormGroup>
+                        <label>Msisdn</label>
+                        <Input
+                          name="msisdn"
+                          value={msisdn} 
+                          onChange={(e) => setMsisdn(e.target.value)}
+                          defaultValue="962*********"
+                          placeholder="Msisdn"
+                          type="number"
+                        />
+                      </FormGroup>
+                    </Col>
+                  </Row>
+                </Form>
+              </CardBody>
+              <CardFooter>
+                <Button className="btn-fill" color="primary" type="submit"
+                onClick ={deleteSdp} >
+                  Save
+                </Button>
+              </CardFooter>
+            </Card>
+
             <Card>
               <CardHeader>
                 <h5 className="title">Delete AF</h5>

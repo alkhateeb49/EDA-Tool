@@ -3711,7 +3711,6 @@ function myFunction() {
                           defaultValue="962*********"
                           placeholder="Msisdn"
                           type="text"
-                          name="msisdn"
                           onChange={(e) => setMsisdn(e.target.value)}
                         />
                       </FormGroup>

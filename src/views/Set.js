@@ -73,7 +73,103 @@ function Set() {
   const [publicId, setPublicId] = useState(0);
   const [usrIdentifier, setUsrIdentifier] = useState("");
   const [srvpkgName, setSrvpkgName] = useState("");
+  const [PamServiceId, setPamServiceId] = useState("");
+  const [PamIndecator, setPamIndecator] = useState("");
 
+  function RunPAM(){
+   
+   console.log(msisdn);
+    //alert('start');
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.open('Post', "http://"+sessionStorage.getItem('serv')+":8080/CAI3G1.2/services/CAI3G1.2", true);
+    
+    // build SOAP request
+    var sr =
+    "<soapenv:Envelope xmlns:soapenv='http://schemas.xmlsoap.org/soap/envelope/' xmlns:cai3='http://schemas.ericsson.com/cai3g1.2/' xmlns:css='http://schemas.ericsson.com/ma/CA/CSSVSUB/'>"+
+    "<soapenv:Header>"+
+       "<wsse:Security xmlns:wsse='http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd'>"+
+        "<wsse:UsernameToken>"+
+            "<wsse:Username>"+sessionStorage.getItem('username')+"</wsse:Username>"+
+            "<wsse:Password>"+sessionStorage.getItem('password')+"</wsse:Password>"+
+        "</wsse:UsernameToken>"+
+    "</wsse:Security>"+
+    "</soapenv:Header>"+
+"<soapenv:Body>"+
+"<cai3:Set>"+
+"<cai3:MOType>CSSVSUB@http://schemas.ericsson.com/ma/CA/CSSVSUB/</cai3:MOType>"+
+"<cai3:MOId>"+
+"<css:msisdn>962"+msisdn+"</css:msisdn>"+
+"</cai3:MOId>"+
+"<cai3:MOAttributes>"+
+"<css:SetCSSVSUB>"+
+"<css:msisdn>962"+msisdn+"</css:msisdn>"+
+"<css:runPam>"+
+"<css:actionId>9</css:actionId>"+
+"<css:msisdnNai>1</css:msisdnNai>"+
+"<css:pamServiceId>"+PamServiceId+"</css:pamServiceId>"+
+"<css:pamIndicator>"+PamIndecator+"</css:pamIndicator>"+
+"</css:runPam>"+
+"</css:SetCSSVSUB>"+
+"</cai3:MOAttributes>"+
+"</cai3:Set>"+
+"</soapenv:Body>"+
+"</soapenv:Envelope>";
+     //alert(sr);
+    xmlhttp.onreadystatechange = function () {
+      //alert('first');
+        if (xmlhttp.readyState == 4) {
+          //alert('secound');
+            if (xmlhttp.status == 200 || xmlhttp.status==500) {
+
+              var resultText = xmlhttp.responseText;
+              // console.log(resultText);
+if(resultText.search("error")!=-1 || resultText.search("fault")!=-1){
+                alert("Invalid Process");
+                //To Get error
+                var x,y, i, xmlDoc, txt,txt1;
+                txt = "";
+                txt1 = "";
+                xmlDoc=xmlhttp.responseXML;
+
+                x = xmlDoc.getElementsByTagName('errormessage');
+                for (i = 0; i < x.length; i++) {
+                  txt += x[i].childNodes[0].nodeValue;
+                }
+                y = xmlDoc.getElementsByTagName('errorcode');
+                for (i = 0; i < y.length; i++) {
+                  txt1 += y[i].childNodes[0].nodeValue;
+                }
+                alert("Error Message: "+txt+"\n"+"Error Code: "+txt1);
+        
+                }else{
+                  alert("Success Process");
+                }
+             // alert(" working");
+              //alert(sr.response);
+              //To Get error
+              var x, i, xmlDoc, txt;
+              // xmlDoc = sr.responseXML;
+              // console.log(xmlDoc);
+              // txt = "";
+              // x = xmlDoc.getElementsByTagName("sessionId");
+              // for (i = 0; i < x.length; i++) {
+              //   txt += x[i].childNodes[0].nodeValue;
+              // }
+       
+              // this.setState({ sessionId: txt });
+              //console.log(this.state.sessionId);
+              txt = "";
+              console.log("txt = ", txt);
+      
+                
+            }
+        }
+    }
+    // Send the POST request
+    xmlhttp.setRequestHeader('Content-Type', 'text/xml');
+    xmlhttp.send(sr);
+  }
   function bar(){
    
    console.log(msisdn);
@@ -5207,6 +5303,65 @@ function myFunction() {
         <br/><br/>
         <Row>
           <Col md="8">
+
+          <Card>
+              <CardHeader>
+                <h5 className="title">Run PAM</h5>
+              </CardHeader>
+              <CardBody>
+                <Form>
+                  <Row>
+                    <Col className="pr-md-1" md="5">
+                      <FormGroup>
+                        <label>Msisdn</label>
+                        <Input
+                          defaultValue="962*********"
+                          placeholder="Msisdn"
+                          type="text"
+                          name="msisdn"
+                          value={msisdn}
+                                onChange={(e) => setMsisdn(e.target.value)}
+                        />
+                      </FormGroup>
+                    </Col>
+                  </Row>
+                  <Row>
+                  <Col className="pr-md-1" md="5">
+                      <FormGroup>
+                        <label>pam Service Id</label>
+                        <Input
+                          defaultValue="1"
+                          placeholder="refillBarAction"
+                          type="text"
+                          name="action"
+                          onChange={(e) => setPamServiceId(e.target.value)}
+                        />
+                      </FormGroup>
+                    </Col>
+                  </Row>
+                  <Row>
+                  <Col className="pr-md-1" md="5">
+                      <FormGroup>
+                        <label>PAM Indicator</label>
+                        <Input
+                          defaultValue="7777"
+                          placeholder="refillBarAction"
+                          type="text"
+                          name="action"
+                          onChange={(e) => setPamIndecator(e.target.value)}
+                        />
+                      </FormGroup>
+                    </Col>
+                  </Row>
+                </Form>
+              </CardBody>
+              <CardFooter>
+                <Button className="btn-fill" color="primary" type="submit" onClick={RunPAM}>
+                  Save
+                </Button>
+              </CardFooter>
+            </Card>
+
             <Card>
               <CardHeader>
                 <h5 className="title">Set Refill Barring</h5>
